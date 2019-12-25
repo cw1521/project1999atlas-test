@@ -25,7 +25,7 @@ var cors = require('cors');
 import * as bodyParser from 'body-parser';
 var helmet = require('helmet');
 
-import {Database} from 'p99atlasdb-api/database/database';
+import {Database} from './p99atlasdb-api/database/database';
 
 
 import {Routes} from './p99atlasdb-api/routes/Routes';
