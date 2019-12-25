@@ -33,8 +33,5 @@ export class Database {
                 process.exit(0)
             });
         });
+    }
 }
-}
-
-
-export default Database;
