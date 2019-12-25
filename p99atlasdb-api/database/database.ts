@@ -8,7 +8,7 @@ const mongooseOptions = {
   }
 
 //export this function and imported by server.js
-module.exports = function() {
+function database() {
 
       
 
@@ -33,3 +33,6 @@ module.exports = function() {
         });
     });
 }
+
+
+export default database;
