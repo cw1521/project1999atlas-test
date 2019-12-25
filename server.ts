@@ -25,7 +25,7 @@ var cors = require('cors');
 import * as bodyParser from 'body-parser';
 var helmet = require('helmet');
 
-import database from 'p99atlasdb-api/database/database';
+import {Database} from 'p99atlasdb-api/database/database';
 
 
 import {Routes} from './p99atlasdb-api/routes/Routes';
@@ -41,9 +41,9 @@ const DIST_FOLDER = join(process.cwd(), 'dist/browser');
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const {AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModuleMap} = require('./dist/server/main');
 
+const database = new Database();
 
-
-database();
+database.start();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
