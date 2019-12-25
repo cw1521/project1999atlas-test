@@ -1,0 +1,43 @@
+
+<div fxLayout = "column"
+  fxLayoutAlign="left"
+  class="dark-background nav"
+  *ngIf="map">
+    <p>
+      <a class="link" [routerLink]="['/continent/', map.continent]"> {{map.continent}} </a>
+      <a class="link" [routerLink]="['/zones/', map.zone]"> / {{map.zone}} </a>
+    </p>
+</div>
+
+
+  <div fxLayout="column"
+    fxLayoutAlign="center center"
+    class="map-container dark-background mat-typography map-img-container"
+    *ngIf="map">
+  
+      <h1 class="title">{{ map.name }}</h1>
+   
+    <div fxFlex="90" flexAlign="center">
+      <img fxFlex="95" flexAlign="center center" class="map-img" src="{{ 'http://localhost:3000/p99atlasdb-api/assets/maps/' + map.img_link }}" alt="{{ map.name }}">
+    </div>
+
+</div>
+
+<div fxLayout="column"
+  fxLayoutAlign="center center"
+  class="key dark-background mat-typography"
+  *ngIf="map">
+  <div fxFlex fxHide.gt-xs>
+    <div *ngFor="let key of map.location_key">
+    <p>{{ key }}</p>
+    </div>
+  </div>
+
+  <div fxFlex fxHide.lt-sm>
+    <div class="key-container" *ngFor="let key of map.location_key">
+    <p>{{ key }}</p>
+  </div>
+
+</div>
+
+
