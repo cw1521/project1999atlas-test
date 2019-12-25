@@ -1,10 +1,12 @@
+import { Request, Response, NextFunction } from 'express';
+
 import {Continent} from '../models/continent';
 
 
 
 
 // Get Continent By Name
-Continent.getByName = (req, res) => {
+Continent.getByName = (req: Request, res: Response, next: NextFunction) => {
     var continentName = `^${String(req.params.continentName)}$`;
     Continent.findOne({
         name: {$regex: new RegExp(continentName, "i")}
@@ -47,3 +49,4 @@ Continent.getAll = (req, res) => {
     });
 }
 
+export default Continent;

@@ -1,4 +1,4 @@
-var mongoose = require("mongoose");
+import mongoose, {Schema} from 'mongoose';
 
 var zoneSchema = new mongoose.Schema({
     id: Number,
@@ -59,7 +59,7 @@ var zoneSchema = new mongoose.Schema({
         category: [String]
     },
     walkthrough: [String]
-});
+}, { collection: "zones" });
 
 var Zone = mongoose.model("zone", zoneSchema);
 

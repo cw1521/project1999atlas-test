@@ -1,67 +1,57 @@
-var continentController = require("../controllers/continentController");
-var mapController = require("../controllers/mapController");
-var zoneController = require("../controllers/zoneController");
+import Continent from "../controllers/continentController";
+import Zone from "../controllers/zoneController";
 
-
-import {notSupportedHandler} from './routeHandlers';
-
+function notSupportedHandler(req, res, next) {    
+    res.status(403);
+    res.json({
+        message: "Not Supported."
+    });
+}
 
 
 export class Routes {
 
-    indexRoute(router) {
+    private indexRoute(router) {
         router.route('/')
         .all((request, response, next) => {
             response.statusCode = 200;
-            response.setHeader('Context-Type', 'text/plain');
-            response.end();
-        })
-        
-        .put(notSupportedHandler)
-        .post(notSupportedHandler)
-        .delete(notSupportedHandler);
-        
-        
-    }
-
-    continentRoute(router) {
-        router.route("/:continentName")
-        .all((req, res, next) => {
-            res.status(200);
             next();
         })
-        .get(continentController.getByName)
+        
+        
+        .put(notSupportedHandler)
+        .post(notSupportedHandler)
+        .delete(notSupportedHandler);
+        
+        
+    }
+
+    private continentRoute(router) {
+        router.route("/continent/:continentName")
+        .get(Continent.getByName)
         .post(notSupportedHandler)
         .put(notSupportedHandler)
         .delete(notSupportedHandler);
     }
 
-    mapRoute(router) {
-        router.route("/:zoneName/:mapName")
-        .all((req, res, next) => {
-            res.status(200);
-            next();
-        })
-        .get(mapController.getMapByName)
+    private mapRoute(router) {
+        router.route("/maps/:zoneName/:mapName")
+        .get(Zone.getMapByName)
         .put(notSupportedHandler)
         .post(notSupportedHandler)
         .delete(notSupportedHandler);
     }
 
-    zoneRoute(router) {
-        router.route("/:zoneName")
-        .all((req, res, next) => {
-            res.status(200);
-            next();
-        })
-        .get(zoneController.getByName)
+    private zoneRoute(router) {
+        router.route("/zones/:zoneName")
+        .get(Zone.getByName)
         .post(notSupportedHandler)
         .put(notSupportedHandler)
         .delete(notSupportedHandler);
 
     }
 
-    addRoutes(router) {
+    public addRoutes(router) : void {
         this.indexRoute(router);
         this.zoneRoute(router);
         this.continentRoute(router);

@@ -1,6 +1,7 @@
 import {Zone} from '../models/zone';
+import { Request, Response, NextFunction } from 'express';
 
-Zone.getMapByName  = (req, res) => {
+Zone.getMapByName  = (req: Request, res, Response, next: NextFunction) => {
     var zoneName = `^${String(req.params.zoneName)}$`;
     Zone.findOne({
         name: {$regex: new RegExp(zoneName, "i")}
@@ -22,3 +23,5 @@ Zone.getMapByName  = (req, res) => {
         }
     });
 }
+
+export default Zone;

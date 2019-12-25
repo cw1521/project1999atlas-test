@@ -1,4 +1,4 @@
-var mongoose = require("mongoose");
+import mongoose, {Schema} from 'mongoose';
 
 var ContinentsSchema = new mongoose.Schema({
     id: Number,

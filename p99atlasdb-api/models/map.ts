@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+import mongoose, {Schema} from 'mongoose';
 
 var mapSchema = new mongoose.Schema({
     name: String,
