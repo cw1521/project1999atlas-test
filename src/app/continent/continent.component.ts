@@ -36,7 +36,7 @@ export class ContinentComponent implements OnInit {
     .subscribe((continent) => { 
       this.continent = continent["data"];
       
-      this.img_link = "http://localhost:3000/p99atlasdb-api/assets/images/" + this.continent.img_link;
+      this.img_link = "/assets/images/" + this.continent.img_link;
       // console.log(this.img_link)
      });
     this.zoneService.getZones().subscribe(zones => {

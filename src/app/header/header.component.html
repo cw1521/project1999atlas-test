@@ -71,7 +71,7 @@
         <ng-template matMenuContent>
           <a class="menu" mat-menu-item routerLink="/continent/planes" routerLinkActive="active" class="menu">Planes</a>
           <div *ngFor="let zone of planesZones">
-            <a class="menu" mat-menu-item [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+            <a class="menu" mat-menu-item [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
           </div>
         </ng-template>
       </mat-menu>
@@ -79,7 +79,7 @@
       <mat-menu class="xs-menu"  #antonicaCitiesMenu>
         <ng-template matMenuContent>
           <div *ngFor="let zone of antonicaZones">
-            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
           </div>
         </ng-template>
       </mat-menu>
@@ -87,7 +87,7 @@
       <mat-menu class="xs-menu" #antonicaDungeonsMenu>
         <ng-template matMenuContent>
           <div *ngFor="let zone of antonicaZones">
-            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
           </div>
         </ng-template>
       </mat-menu>
@@ -95,7 +95,7 @@
       <mat-menu class="xs-menu" #antonicaOutdoorMenu>
         <ng-template matMenuContent>
           <div *ngFor="let zone of antonicaZones">
-            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
           </div>
         </ng-template>
       </mat-menu>
@@ -103,7 +103,7 @@
       <mat-menu class="xs-menu" #faydwerCitiesMenu>
         <ng-template matMenuContent>
           <div *ngFor="let zone of faydwerZones">
-            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
           </div>
         </ng-template>
       </mat-menu>
@@ -111,7 +111,7 @@
       <mat-menu class="xs-menu" #faydwerDungeonsMenu>
         <ng-template matMenuContent>
           <div *ngFor="let zone of faydwerZones">
-            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
           </div>
         </ng-template>
       </mat-menu>
@@ -119,7 +119,7 @@
       <mat-menu class="xs-menu" #faydwerOutdoorMenu>
         <ng-template matMenuContent>
           <div *ngFor="let zone of faydwerZones">
-            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>  
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>  
           </div>
         </ng-template>
       </mat-menu>
@@ -127,7 +127,7 @@
       <mat-menu class="xs-menu" #odusCitiesMenu>
         <ng-template matMenuContent>
           <div *ngFor="let zone of odusZones">
-            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
           </div>
         </ng-template>
       </mat-menu>
@@ -135,7 +135,7 @@
       <mat-menu class="xs-menu" #odusDungeonsMenu>
         <ng-template matMenuContent>
           <div *ngFor="let zone of odusZones">
-            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
           </div>
         </ng-template>
       </mat-menu>
@@ -143,7 +143,7 @@
       <mat-menu class="xs-menu" #odusOutdoorMenu>
         <ng-template matMenuContent>
           <div *ngFor="let zone of odusZones">
-            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
           </div>
         </ng-template>
       </mat-menu>
@@ -151,7 +151,7 @@
       <mat-menu class="xs-menu" #kunarkCitiesMenu>
         <ng-template matMenuContent>
           <div *ngFor="let zone of kunarkZones">
-            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
           </div>
         </ng-template>
       </mat-menu>
@@ -159,7 +159,7 @@
       <mat-menu class="xs-menu" #kunarkDungeonsMenu>
         <ng-template matMenuContent>
           <div *ngFor="let zone of kunarkZones">
-            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
           </div>
         </ng-template>
       </mat-menu>
@@ -167,7 +167,7 @@
       <mat-menu class="xs-menu" #kunarkOutdoorMenu>
         <ng-template matMenuContent>
           <div *ngFor="let zone of kunarkZones">
-            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
           </div>
         </ng-template>
       </mat-menu>
@@ -175,7 +175,7 @@
       <mat-menu class="xs-menu" #veliousCitiesMenu>
         <ng-template matMenuContent>
           <div *ngFor="let zone of veliousZones">
-            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
           </div>
         </ng-template>
       </mat-menu>
@@ -183,7 +183,7 @@
       <mat-menu class="xs-menu" #veliousDungeonsMenu>
         <ng-template matMenuContent>
           <div *ngFor="let zone of veliousZones">
-            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
           </div>
         </ng-template>
       </mat-menu>
@@ -191,7 +191,7 @@
       <mat-menu class="xs-menu" #veliousOutdoorMenu>
         <ng-template matMenuContent>
           <div *ngFor="let zone of veliousZones">
-            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" routerLink="['/zones/', zone.id]">{{ zone.name  }}</a>
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" routerLink="['/zones/', zone.name]">{{ zone.name }}</a>
           </div>
         </ng-template>
       </mat-menu>
@@ -199,7 +199,7 @@
     <mat-menu class="xs-menu" #planesMenu="matMenu">
       <ng-template matMenuContent>
         <div *ngFor="let zone of planesZones">
-          <a class="menu" mat-menu-item [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+          <a class="menu" mat-menu-item [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
@@ -305,7 +305,7 @@
     <mat-menu  #antonicaCitiesMenu>
       <ng-template matMenuContent>
         <div *ngFor="let zone of antonicaZones">
-          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
@@ -313,7 +313,7 @@
     <mat-menu  #antonicaDungeonsMenu>
       <ng-template matMenuContent>
         <div *ngFor="let zone of antonicaZones">
-          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
@@ -321,7 +321,7 @@
     <mat-menu  #antonicaOutdoorMenu>
       <ng-template matMenuContent>
         <div *ngFor="let zone of antonicaZones">
-          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
@@ -329,7 +329,7 @@
     <mat-menu  #faydwerCitiesMenu>
       <ng-template matMenuContent>
         <div *ngFor="let zone of faydwerZones">
-          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
@@ -337,7 +337,7 @@
     <mat-menu  #faydwerDungeonsMenu>
       <ng-template matMenuContent>
         <div *ngFor="let zone of faydwerZones">
-          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
@@ -345,7 +345,7 @@
     <mat-menu  #faydwerOutdoorMenu>
       <ng-template matMenuContent>
         <div *ngFor="let zone of faydwerZones">
-          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>  
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>  
         </div>
       </ng-template>
     </mat-menu>
@@ -353,7 +353,7 @@
     <mat-menu  #odusCitiesMenu>
       <ng-template matMenuContent>
         <div *ngFor="let zone of odusZones">
-          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
@@ -361,7 +361,7 @@
     <mat-menu  #odusDungeonsMenu>
       <ng-template matMenuContent>
         <div *ngFor="let zone of odusZones">
-          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
@@ -369,7 +369,7 @@
     <mat-menu  #odusOutdoorMenu>
       <ng-template matMenuContent>
         <div *ngFor="let zone of odusZones">
-          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
@@ -377,7 +377,7 @@
     <mat-menu  #kunarkCitiesMenu>
       <ng-template matMenuContent>
         <div *ngFor="let zone of kunarkZones">
-          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
@@ -385,7 +385,7 @@
     <mat-menu  #kunarkDungeonsMenu>
       <ng-template matMenuContent>
         <div *ngFor="let zone of kunarkZones">
-          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
@@ -393,7 +393,7 @@
     <mat-menu  #kunarkOutdoorMenu>
       <ng-template matMenuContent>
         <div *ngFor="let zone of kunarkZones">
-          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name }}</a>
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
@@ -401,7 +401,7 @@
     <mat-menu  #veliousCitiesMenu>
       <ng-template matMenuContent>
         <div *ngFor="let zone of veliousZones">
-          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
@@ -409,7 +409,7 @@
     <mat-menu  #veliousDungeonsMenu>
       <ng-template matMenuContent>
         <div *ngFor="let zone of veliousZones">
-          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.id]">{{ zone.name  }}</a>
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
@@ -417,7 +417,7 @@
     <mat-menu  #veliousOutdoorMenu>
       <ng-template matMenuContent>
         <div *ngFor="let zone of veliousZones">
-          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" routerLink="['/zones/', zone.id]">{{ zone.name }}</a>
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" routerLink="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
@@ -431,7 +431,7 @@
     <mat-menu  #planesMenu="matMenu">
       <ng-template matMenuContent>
         <div *ngFor="let zone of planesZones">
-          <a class="menu" mat-menu-item [routerLink]="['/zones/', zone.id]">{{ zone.name }}</a>
+          <a class="menu" mat-menu-item [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
         </div>
       </ng-template>
     </mat-menu>
