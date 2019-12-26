@@ -61,6 +61,7 @@ Zone.getMapByName  = (req: Request, res, Response, next: NextFunction) => {
         }
         else {
             var map = zone.maps.filter(map => map.name.toLowerCase() == String(req.params.mapName).toLowerCase())[0];
+            console.log(map);
             map = JSON.stringify(map);
             res.status(200);
             res.json({
