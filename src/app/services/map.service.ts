@@ -12,8 +12,8 @@ export class MapService {
 
 
   getMapByName(zoneName, mapName) {
-    const url = `p99atlasdb-api/maps/${zoneName}/${mapName}`.trim().replace('\0', '');
-    return this.http.get<Map>(url);
+    const url = `p99atlasdb-api/maps/{zoneName:"${zoneName}",mapName:"${mapName}"}`;
+    return this.http.get(url);
   }
 
 }
