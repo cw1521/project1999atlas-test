@@ -23,10 +23,10 @@ export class MapComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       var temp;
       //console.log("here");
-      console.log(params);
-      this.mapService.getMapByName(String(params.get('zoneName')).replace(' ', '-'), String(params.get('mapName')).replace(' ', '-'))
+      //console.log(params);
+      this.mapService.getMapByName(params.get("zoneName"), params.get('mapName'))
       .subscribe(map => {
-        console.log(map);
+        //console.log(map);
         this.map = map["data"];
         this.map.continent = this.map.continent[0].toUpperCase() + this.map.continent.slice(1);
         this.map.zone = this.map.zone[0].toUpperCase() + this.map.zone.slice(1)

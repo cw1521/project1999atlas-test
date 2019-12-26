@@ -47,7 +47,7 @@ Zone.getAll = (req: Request, res: Response, next: NextFunction) => {
 
 
 Zone.getMapByName  = (req: Request, res, Response, next: NextFunction) => {
-    console.log(req.params);
+    //console.log(req.params);
     var zoneName = `^${String(req.params.zoneName).replace('-', ' ')}$`;
     //console.log(`Zone Name: ${zoneName}\n`);
     Zone.findOne({

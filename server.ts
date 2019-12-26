@@ -56,13 +56,13 @@ app.use(helmet());
 app.use(cors());
 
 
-app.use("/p99atlasdb-api", function(req, res, next) {
+app.use("*", function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
   res.header("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept,content-type,application/json");
   console.log(req.params);
   if ("OPTIONS" === req.method) { 
-    return res.send(200);
+    return res.status(200);
   }
   next();
 });
@@ -87,7 +87,6 @@ app.set('views', DIST_FOLDER);
 // Example Express Rest API endpoints
 // app.get('/api/**', (req, res) => { });
 
-routes.addRoutes(app);
 
 
 // Serve static files from /browser
@@ -100,6 +99,9 @@ app.get('*.*', express.static(DIST_FOLDER, {
 app.get('*', (req, res) => {
   res.render('index', { req });
 });
+
+
+routes.addRoutes(app);
 
 
 
