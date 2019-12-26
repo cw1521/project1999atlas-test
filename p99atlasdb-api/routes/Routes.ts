@@ -13,10 +13,10 @@ export class Routes {
 
     private indexRoute(router) {
         router.route('/')
-        .all((request, response, next) => {
+        .get((request, response, next) => {
             response.statusCode = 200;
             next();
-        })        
+        })  
         .put(notSupportedHandler)
         .post(notSupportedHandler)
         .delete(notSupportedHandler);
