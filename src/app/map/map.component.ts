@@ -19,6 +19,7 @@ export class MapComponent implements OnInit {
     private mapService: MapService) { }
 
   ngOnInit() {
+    this.map = null;
     this.route.paramMap.subscribe(params => {
       var temp;
       this.mapService.getMapByName(String(params.get('zoneName')), String(params.get('mapName')))

@@ -26,7 +26,7 @@
 <div fxLayout="column"
   fxLayoutAlign="center center"
   class="key dark-background mat-typography"
-  *ngIf="map">
+  *ngIf="map != null">
   <div fxFlex fxHide.gt-xs>
     <div *ngFor="let key of map.location_key">
     <p>{{ key }}</p>
