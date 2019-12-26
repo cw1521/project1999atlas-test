@@ -22,7 +22,8 @@ export class MapComponent implements OnInit {
     this.map = null;
     this.route.paramMap.subscribe(params => {
       var temp;
-      console.log("here");
+      //console.log("here");
+      console.log(params);
       this.mapService.getMapByName(String(params.get('zoneName')).replace(' ', '-'), String(params.get('mapName')).replace(' ', '-'))
       .subscribe(map => {
         console.log(map);
