@@ -45,11 +45,6 @@ export class Routes {
     }
 
     private zoneRoute(router) {
-        router.route("/p99atlasdb-api/zones")
-        .get(Zone.getAll)
-        .post(notSupportedHandler)
-        .put(notSupportedHandler)
-        .delete(notSupportedHandler);
 
         router.route("/p99atlasdb-api/zones/:zoneName")
         .get(Zone.getByName)
@@ -59,11 +54,20 @@ export class Routes {
 
     }
 
+    private zonesRoute(router) {
+        router.route("/p99atlasdb-api/zones")
+        .get(Zone.getAll)
+        .post(notSupportedHandler)
+        .put(notSupportedHandler)
+        .delete(notSupportedHandler);
+    }
+
     public addRoutes(router) : void {
         this.indexRoute(router);
         this.zoneRoute(router);
         this.continentRoute(router);
         this.mapRoute(router);
+        this.zonesRoute(router);
     }
     
 }
