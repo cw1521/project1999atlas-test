@@ -29,9 +29,10 @@ export class MapComponent implements OnInit {
       .subscribe(zone => {
         //console.log(map);
         this.zone = zone["data"];
-        this.map = this.zone.maps.filter(map => { map.name.toLowerCase() == params.get("mapName").toLowerCase()})[0];
-        this.map.continent = this.map.continent[0].toUpperCase() + this.map.continent.slice(1);
-        this.map.zone = this.map.zone[0].toUpperCase() + this.map.zone.slice(1)
+        console.log(this.zone);
+        this.map = this.zone.maps.filter(map => map.name.toLowerCase() == params.get("mapName").toLowerCase())[0];
+        //this.map.continent = this.map.continent[0].toUpperCase() + this.map.continent.slice(1);
+        //this.map.zone = this.map.zone[0].toUpperCase() + this.map.zone.slice(1)
       });
 
       this.window.scrollTo(0, 0);
