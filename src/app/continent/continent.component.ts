@@ -25,8 +25,7 @@ export class ContinentComponent implements OnInit {
 
   constructor(@Inject(WINDOW) private window: Window,  private continentService: ContinentService,
     private zoneService: ZoneService,
-    private route: ActivatedRoute,
-    @Inject('baseURL') private baseURL) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
   this.route.paramMap.subscribe(params => {
