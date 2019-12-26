@@ -43,6 +43,12 @@ export class Routes {
     }
 
     private zoneRoute(router) {
+        router.route("/zones")
+        .get(Zone.getAll())
+        .post(notSupportedHandler)
+        .put(notSupportedHandler)
+        .delete(notSupportedHandler);
+
         router.route("/zones/:zoneName")
         .get(Zone.getByName)
         .post(notSupportedHandler)
