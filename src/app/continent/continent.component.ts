@@ -36,7 +36,7 @@ export class ContinentComponent implements OnInit {
     .subscribe((continent) => { 
       this.continent = continent["data"];
       
-      this.img_link = "/assets/images/" + this.continent.img_link;
+      this.img_link = this.continent.img_link;
       // console.log(this.img_link)
      });
     this.zoneService.getZones().subscribe(zones => {
