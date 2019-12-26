@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 
 Zone.getMapByName  = (req: Request, res, Response, next: NextFunction) => {
     var zoneName = `^${String(req.params.zoneName)}$`;
+    console.log(`Zone Name: ${zoneName}\n`);
     Zone.findOne({
         name: {$regex: new RegExp(zoneName, "i")}
         }, (err, zone) => {
