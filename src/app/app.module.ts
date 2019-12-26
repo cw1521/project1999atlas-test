@@ -30,11 +30,11 @@ import { MaterialModule } from './material.module';
     MapComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),    
+    HttpClientModule,
     AppRoutingModule,
     MaterialModule,
     FlexLayoutModule,
-    HttpClientModule,
     NgtUniversalModule,
     BrowserAnimationsModule
   ],

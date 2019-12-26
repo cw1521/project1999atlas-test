@@ -55,6 +55,9 @@ app.use(helmet());
 
 app.use(cors());
 
+routes.addRoutes(app);
+
+
 
 app.use("*", function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -100,8 +103,6 @@ app.get('*', (req, res) => {
   res.render('index', { req });
 });
 
-
-routes.addRoutes(app);
 
 
 
