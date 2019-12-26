@@ -1,7 +1,7 @@
 import { WINDOW } from '@ng-toolkit/universal';
 import { Component, OnInit , Inject} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MapService } from '../services/map.service';
+import { ZoneService } from '../services/zone.service';
 import { Map } from '../shared/map';
 import { Zone } from '../shared/zone';
 
@@ -12,11 +12,12 @@ import { Zone } from '../shared/zone';
 })
 export class MapComponent implements OnInit {
   map: Map;
+  zone: Zone;
   
   comments: string[];
 
   constructor(@Inject(WINDOW) private window: any, private route: ActivatedRoute,
-    private mapService: MapService) { }
+    private zoneService: ZoneService) { }
 
   ngOnInit() {
     this.map = null;
@@ -24,10 +25,11 @@ export class MapComponent implements OnInit {
       var temp;
       //console.log("here");
       //console.log(params);
-      this.mapService.getMapByName(params.get("zoneName").replace('\0', ''), params.get("mapName").replace('\0', ''))
-      .subscribe(map => {
+      this.zoneService.getZoneByName(params.get("zoneName"))
+      .subscribe(zone => {
         //console.log(map);
-        this.map = map["data"];
+        this.zone = zone["data"];
+        this.map = this.zone.maps.filter(map => { map.name.toLowerCase() == params.get("mapName").toLowerCase()})[0];
         this.map.continent = this.map.continent[0].toUpperCase() + this.map.continent.slice(1);
         this.map.zone = this.map.zone[0].toUpperCase() + this.map.zone.slice(1)
       });
@@ -38,6 +40,6 @@ export class MapComponent implements OnInit {
 
 
   ngOnDestroy() {
-    delete this.mapService;
+    delete this.zoneService;
   }
 }
