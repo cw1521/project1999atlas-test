@@ -231,7 +231,7 @@
             <br><br>
         </p>
 
-        <p *ngIf="zone.local_color.length > 0"><span class="title">{{ zone.local_color.title }}<br></span>
+        <p *ngIf="zone.local_color != null"><span class="title">{{ zone.local_color.title }}<br></span>
             <span class="title" style="font-size: 100%">People<br></span>
             <span class="text">{{ zone.local_color.people }}<br><br></span>
             <span class="title" style="font-size: 100%">Places<br></span>
@@ -252,13 +252,13 @@
             </span>
             <br><br>
         </p>
-        <p *ngIf="zone.strategy.length > 0"><span class="title">Strategy<br></span>
+        <p *ngIf="zone.strategy != null"><span class="title">Strategy<br></span>
             <span  *ngFor="let strat of zone.strategy">
                 <span *ngIf="strat.title">
                     {{ strat.title }}
                 </span>
                 <br>
-                <span *ngIf="strat.category">
+                <span *ngIf="strat.category.length > 0">
                     <span class="text" *ngFor="let line of strat.category; let i=index">
                         <span *ngIf="i < strat.category.length - 1">{{ line }}<br></span>
                         <span *ngIf="i == strat.category.length - 1">{{ line }}</span>
@@ -266,7 +266,7 @@
                     <br><br>
                 </span>
 
-                <span *ngIf="strat.elements">
+                <span *ngIf="strat.elements.length > 0">
                     <span class="text" *ngFor="let line of strat.elements; let i=index">
                         <span *ngIf="i < strat.elements.length - 1">{{ line }}<br><br></span>
                         <span *ngIf="i == strat.elements.length - 1">{{ line }}</span>
