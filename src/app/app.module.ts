@@ -14,7 +14,7 @@ import { ContinentComponent } from './continent/continent.component';
 import { HomeComponent } from './home/home.component';
 import { ZoneComponent } from './zone/zone.component';
 import { MapComponent } from './map/map.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from './material.module';
@@ -35,7 +35,8 @@ import { MaterialModule } from './material.module';
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
-    NgtUniversalModule
+    NgtUniversalModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
