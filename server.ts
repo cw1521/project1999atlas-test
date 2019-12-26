@@ -68,7 +68,7 @@ app.use("/p99atlasdb-api", function(req, res, next) {
 
 
 // uncomment after placing your favicon in /public
-app.use(favicon("favicon.png"));
+//app.use(favicon(join("favicon.png")));
 
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
