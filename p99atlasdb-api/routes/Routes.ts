@@ -16,14 +16,10 @@ export class Routes {
         .all((request, response, next) => {
             response.statusCode = 200;
             next();
-        })
-        
-        
+        })        
         .put(notSupportedHandler)
         .post(notSupportedHandler)
         .delete(notSupportedHandler);
-        
-        
     }
 
     private continentRoute(router) {
@@ -44,7 +40,7 @@ export class Routes {
 
     private zoneRoute(router) {
         router.route("/zones")
-        .get(Zone.getAll())
+        .get(Zone.getAll)
         .post(notSupportedHandler)
         .put(notSupportedHandler)
         .delete(notSupportedHandler);
