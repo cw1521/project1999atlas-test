@@ -15,7 +15,7 @@ export class MapComponent implements OnInit {
   
   comments: string[];
 
-  constructor(@Inject(WINDOW) private window: Window, private route: ActivatedRoute,
+  constructor(@Inject(WINDOW) private window: any, private route: ActivatedRoute,
     private mapService: MapService) { }
 
   ngOnInit() {

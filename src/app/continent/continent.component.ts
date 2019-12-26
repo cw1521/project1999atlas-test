@@ -23,7 +23,7 @@ export class ContinentComponent implements OnInit {
   zones: Zone[];
   img_link: string;
 
-  constructor(@Inject(WINDOW) private window: Window,  private continentService: ContinentService,
+  constructor(@Inject(WINDOW) private window: any,  private continentService: ContinentService,
     private zoneService: ZoneService,
     private route: ActivatedRoute) { }
 

@@ -17,7 +17,7 @@ export class ZoneComponent implements OnInit {
   zone: Zone;
   maps: Map[];
 
-  constructor(@Inject(WINDOW) private window: Window, private zoneService: ZoneService,
+  constructor(@Inject(WINDOW) private window: any, private zoneService: ZoneService,
       private mapService: MapService,
       private route: ActivatedRoute) { }
 
