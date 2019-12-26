@@ -20,6 +20,7 @@ import 'zone.js/dist/zone-node';
 import * as express from 'express';
 import {join} from 'path';
 
+
 var cors = require('cors');
 import * as favicon from 'serve-favicon';
 
@@ -68,7 +69,7 @@ app.use("/p99atlasdb-api", function(req, res, next) {
 
 
 // uncomment after placing your favicon in /public
-app.use(favicon(join(process.cwd(), "dist/browser/favicon.ico")));
+//app.use(favicon(join(process.cwd(), "dist/browser/favicon.ico")));
 
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
