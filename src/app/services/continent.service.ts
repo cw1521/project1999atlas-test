@@ -14,11 +14,11 @@ export class ContinentService {
   constructor(private http: HttpClient) { }
 
   getContinentByName(name: string) {
-    return this.http.get<Continent[]>(`http://localhost:3000/p99atlasdb-api/continent/${name}`);
+    return this.http.get<Continent[]>(`p99atlasdb-api/continent/${name}`);
   } 
 
   getContinents() {
-    return this.http.get<Continent[]>("http://localhost:3000/p99atlasdb-api/continent");
+    return this.http.get<Continent[]>("p99atlasdb-api/continent");
   }
 
 }

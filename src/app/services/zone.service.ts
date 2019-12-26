@@ -20,12 +20,12 @@ export class ZoneService {
 
 
   getZoneByName(name: string)  {
-    return this.http.get<Zone>(`Http://localhost:3000/p99atlasdb-api/zones/${name}`);
+    return this.http.get<Zone>(`p99atlasdb-api/zones/${name}`);
   }
 
 
   getZones() {
-    return this.http.get<Zone[]>("http://localhost:3000/p99atlasdb-api/zones");
+    return this.http.get<Zone[]>("p99atlasdb-api/zones");
   }
 
 }
