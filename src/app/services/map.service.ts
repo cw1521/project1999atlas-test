@@ -11,7 +11,7 @@ export class MapService {
   constructor(private http: HttpClient) { }
 
 
-  getMapByName(zoneName: String, mapName: String) {
+  getMapByName(zoneName, mapName) {
     return this.http.get<Map>(`p99atlasdb-api/maps/${zoneName}/${mapName}`);
   }
 
