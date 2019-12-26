@@ -24,7 +24,7 @@ export class MapComponent implements OnInit {
       var temp;
       //console.log("here");
       //console.log(params);
-      this.mapService.getMapByName(params.get("zoneName").trim(), params.get("mapName").trim())
+      this.mapService.getMapByName(params.get("zoneName").replace('\0', ''), params.get("mapName").replace('\0', ''))
       .subscribe(map => {
         //console.log(map);
         this.map = map["data"];
