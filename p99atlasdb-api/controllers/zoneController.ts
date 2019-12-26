@@ -60,7 +60,7 @@ Zone.getMapByName  = (req: Request, res, Response, next: NextFunction) => {
             });
         }
         else {
-            var map = zone.maps.filter(map => map.name.toLowerCase() == req.params.mapName.toLowerCase())[0];
+            var map = zone.maps.filter(map => map.name.toLowerCase() == String(req.params.mapName).toLowerCase())[0];
             res.status(200);
             res.json({
                 message: "Record(s) received.",
