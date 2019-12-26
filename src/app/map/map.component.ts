@@ -21,7 +21,7 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       var temp;
-      this.mapService.getMapByName(params.get('zoneName'), params.get('mapName'))
+      this.mapService.getMapByName(String(params.get('zoneName')), String(params.get('mapName')))
       .subscribe(map => {
         this.map = map["data"];
         this.map.continent = this.map.continent[0].toUpperCase() + this.map.continent.slice(1);
