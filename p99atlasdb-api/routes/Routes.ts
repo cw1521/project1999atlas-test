@@ -12,7 +12,7 @@ function notSupportedHandler(req, res, next) {
 export class Routes {
 
     private indexRoute(router) {
-        router.route('p99atlasdb-api')
+        router.route('/p99atlasdb-api')
         .get((request, response, next) => {
             response.statusCode = 200;
             next();
@@ -23,7 +23,12 @@ export class Routes {
     }
 
     private continentRoute(router) {
-        router.route("p99atlasdb-api/continent/:continentName")
+        router.route("/p99atlasdb-api/continent")
+        .get(Continent.getAll)
+        .post(notSupportedHandler)
+        .put(notSupportedHandler)
+        .delete(notSupportedHandler);
+        router.route("/p99atlasdb-api/continent/:continentName")
         .get(Continent.getByName)
         .post(notSupportedHandler)
         .put(notSupportedHandler)
@@ -31,7 +36,7 @@ export class Routes {
     }
 
     private mapRoute(router) {
-        router.route("p99atlasdb-api/maps/:zoneName/:mapName")
+        router.route("/p99atlasdb-api/maps/:zoneName/:mapName")
         .get(Zone.getMapByName)
         .put(notSupportedHandler)
         .post(notSupportedHandler)
@@ -39,13 +44,13 @@ export class Routes {
     }
 
     private zoneRoute(router) {
-        router.route("p99atlasdb-api/zones")
+        router.route("/p99atlasdb-api/zones")
         .get(Zone.getAll)
         .post(notSupportedHandler)
         .put(notSupportedHandler)
         .delete(notSupportedHandler);
 
-        router.route("p99atlasdb-api/zones/:zoneName")
+        router.route("/p99atlasdb-api/zones/:zoneName")
         .get(Zone.getByName)
         .post(notSupportedHandler)
         .put(notSupportedHandler)

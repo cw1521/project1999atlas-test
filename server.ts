@@ -90,12 +90,14 @@ app.get('*.*', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
 
+
+routes.addRoutes(app);
+
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {
   res.render('index', { req });
 });
 
-routes.addRoutes(app);
 
 
 // app.get('/**/**', function(request, response, next) {
