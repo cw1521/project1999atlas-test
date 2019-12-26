@@ -12,7 +12,7 @@ export class MapService {
 
 
   getMapByName(zoneName: string, mapName: string) {
-    return this.http.get(`p99atlasdb-api/zones/${zoneName}/${mapName}`);
+    return this.http.get(`p99atlasdb-api/maps/${zoneName}/${mapName}`);
   }
 
 }
