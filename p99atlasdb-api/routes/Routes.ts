@@ -1,5 +1,7 @@
 import Continent from "../controllers/continentController";
 import Zone from "../controllers/zoneController";
+import {Request, Response, NextFunction, Router} from 'express';
+var express = require('express');
 
 function notSupportedHandler(req, res, next) {    
     res.status(403);
@@ -62,12 +64,14 @@ export class Routes {
         .delete(notSupportedHandler);
     }
 
-    public addRoutes(router) : void {
+    public addRoutes(app) : void {
+        var router = express.Router();
         this.indexRoute(router);
         this.zoneRoute(router);
         this.continentRoute(router);
         this.mapRoute(router);
         this.zonesRoute(router);
+        app.use(router);
     }
     
 }
