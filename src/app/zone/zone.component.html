@@ -128,7 +128,7 @@
         <mat-tab-group dynamicHeight="true">
             <mat-tab *ngFor="let map of maps" label="{{ map.name }}">
                 <a [routerLink]="['/maps/', zone.name, map.name]">
-                    <img class="tab-map" src="{{ '/p99atlasdb-api/assets/maps/' + map.img_link }}" alt="{{map.name}}">
+                    <img class="tab-map" src="{{ map.img_link }}" alt="{{map.name}}">
                 </a>
                 <div *ngFor="let key of map.location_key">
                     <p class="text">{{ key }}</p>

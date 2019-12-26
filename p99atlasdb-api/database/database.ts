@@ -4,7 +4,8 @@ var mongoose = require('mongoose');
 
 const mongooseOptions = {
     useNewUrlParser: true,
-    socketTimeoutMS: 10000
+    socketTimeoutMS: 10000,
+    useUnifiedTopology: true
   }
 
 //export this function and imported by server.js
