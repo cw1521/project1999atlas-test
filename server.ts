@@ -49,11 +49,11 @@ database.start();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(helmet());
+//app.use(helmet());
 
 //app.use("/p99atlasdb-api");
 
-app.use(cors());
+//app.use(cors());
 
 
 routes.addRoutes(app);

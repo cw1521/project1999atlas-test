@@ -4,6 +4,7 @@
     width: 100%;
     z-index: 5;
     padding: 0px 0px 0px 0px;
+    //height: 11vh;
 }
 
 .xs {
@@ -11,7 +12,7 @@
 }
 
 .sm {
-    height: 9.3vh;
+    height: 10vh;
 }
 
 
@@ -26,13 +27,14 @@
 
 .menu-toolbar {
     background-color: #000000;
-    color: floralwhite;  
+    color: floralwhite; 
+    //height: 12vh;
 }
 
 .header-toolbar {
     background-color: #000000;
 
-
+    height: 10vh;
     
     color: floralwhite;
     a {

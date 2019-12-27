@@ -1,6 +1,7 @@
 //require mongoose module
 var mongoose = require('mongoose');
 
+const MONGODB_URI = 'localhost:27017';
 
 const mongooseOptions = {
     useNewUrlParser: true,
@@ -14,7 +15,7 @@ export class Database {
       
     public start() {
         
-        mongoose.connect(process.env.MONGODB_URI, mongooseOptions);
+        mongoose.connect(MONGODB_URI, mongooseOptions);
 
         mongoose.connection.on('connected', function() {
             console.log("Mongoose default connection is open.");
