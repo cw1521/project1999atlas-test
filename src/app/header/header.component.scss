@@ -1,0 +1,71 @@
+.header {
+    background-color: #000000;
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+    padding: 0px 0px 0px 0px;
+}
+
+.xs {
+    height: 8vh;
+}
+
+.sm {
+    height: 9.3vh;
+}
+
+
+.xs-icon {
+    font-size: 1.2em;
+}
+
+.sm-icon {
+    font-size: 1.1em;
+}
+
+
+.menu-toolbar {
+    background-color: #000000;
+    color: floralwhite;  
+}
+
+.header-toolbar {
+    background-color: #000000;
+
+
+    
+    color: floralwhite;
+    a {
+        font-size: 80%;
+    }
+}
+
+.menu {
+    color: floralwhite;
+    font-size: 80%;
+}
+
+.menu-button {
+    min-width: 7vh;
+}
+::ng-deep .xs-menu .mat-menu-content {    
+    max-height: 32vh;
+    //font-size: 85%;
+}
+
+
+
+::ng-deep .mat-menu-content {
+    max-height: 50vh;
+    margin: 0vh 0vh 0vh 0vh;
+    //font-size: 80%;
+}
+
+::ng-deep .mat-menu-panel {
+    background: #151515;
+    top: 0;
+    left: 0;
+    position: fixed;
+ 
+}
+

@@ -1,0 +1,28 @@
+import {Zone} from '../models/zone';
+import { Request, Response, NextFunction } from 'express';
+
+Zone.getMapByName  = (req: Request, res, Response, next: NextFunction) => {
+    var zoneName = `^${String(req.params.zoneName)}$`;
+    console.log(`Zone Name: ${zoneName}\n`);
+    Zone.findOne({
+        name: {$regex: new RegExp(zoneName, "i")}
+        }, (err, zone) => {
+        if (err) {
+            res.status(err.status || 500);
+            res.json({
+            message: err.message,
+            error: err
+            });
+        }
+        else {
+            var map = zone.maps.filter(map => map.name.toLowerCase() == req.params.mapName.toLowerCase())[0];
+            res.status(200);
+            res.json({
+                message: "Record(s) received.",
+                data: map
+            });
+        }
+    });
+}
+
+export default Zone;

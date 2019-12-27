@@ -1,0 +1,302 @@
+<div fxLayout = "column"
+ fxLayoutAlign="left"
+ class="dark-background nav"
+ *ngIf="zone">
+ 
+  <p><a class="link" [routerLink]="['/continent/', zone.continent]">{{zone.continent}}</a></p>
+ </div>
+
+
+<div fxLayout="column"
+    fxLayoutAlign="center center"
+    class="dark-background  zone mat-typography">
+ 
+    <div fxFlexFill *ngIf="zone">
+        <h1 *ngIf="zone.name" class="center-text">{{ zone.name }}</h1><br><br>
+        <p *ngIf="zone.location"><span class="title">Location<br></span><span class="text">{{ zone.location }}</span><br><br></p>
+        <p *ngIf="zone.adj_zones.length > 0"><span class="title">Adjacent Zones<br></span>
+            <span class="text" *ngFor="let temp of zone.adj_zones; let i=index">
+                <span *ngIf="i < zone.adj_zones.length -1"><a class="link" [routerLink]="['/zones/', temp]"> {{temp}}, </a></span>
+                <span *ngIf="i == zone.adj_zones.length -1"><a class="link" [routerLink]="['/zones/', temp]"> {{temp}} </a></span>
+            </span>
+            <br><br>
+        </p>
+        <p *ngIf="zone.races.length > 0"><span class="title">Races<br></span>
+            <span class="text" *ngFor="let race of zone.races; let i=index">
+                <span *ngIf="i < zone.races.length -1">{{ race }}, </span>
+                <span *ngIf="i == zone.races.length -1">{{ race }}</span>
+            </span>
+            <br><br>
+        </p>
+        <p *ngIf="zone.guilds.length > 0"><span class="title">Guilds<br></span>
+            <span class="text" *ngFor="let guild of zone.guilds; let i=index">
+                <span *ngIf="i < zone.guilds.length -1">{{ guild }}, </span>
+                <span *ngIf="i == zone.guilds.length -1">{{ guild }}</span>
+            </span> 
+            <br><br>   
+        </p>
+        <p *ngIf="zone.religions.length > 0"><span class="title">Religious Facilities<br></span>
+            <span class="text" *ngFor="let religion of zone.religions; let i=index">
+                <span *ngIf="i < zone.religions.length -1">{{ religion }}, </span>
+                <span *ngIf="i == zone.religions.length -1">{{ religion }}</span>
+            </span>
+        </p>
+        <p *ngIf="zone.tradeskills.length > 0"><span class="title">Artisan Facilities<br></span>
+            <span class="text" *ngFor="let tradeskill of zone.tradeskills; let i=index">
+                <span *ngIf="i < zone.tradeskills.length -1">{{ tradeskill }}, </span>
+                <span *ngIf="i == zone.tradeskills.length -1">{{ tradeskill }}</span>
+            </span>
+            <br><br>
+        </p>
+        <p *ngIf="zone.min_player_level"><span class="title">Minimum Player Level<br></span>
+            <span class="text">{{ zone.min_player_level }}</span>
+           
+            <br><br>
+        </p>
+        <p *ngIf="zone.monster_levels.length > 0"><span class="title">Level of Monsters<br></span>
+            <span class="text" *ngFor="let level of zone.monster_levels; let i = index">
+
+                <span *ngIf="i < zone.monster_levels.length -1">{{ level }}, </span>
+                <span *ngIf="i == zone.monster_levels.length -1">{{ level }}</span>
+            </span>
+            <br><br>
+        </p>
+        <p *ngIf="zone.monster_types.length > 0"><span class="title">Types of Monsters<br></span>
+            <span *ngFor="let zoneField of zone.monster_types">
+                <span *ngIf="zoneField.title == 'monsters'">
+                    <span class="text" *ngFor="let type of zoneField.elements; let i=index">
+                        <span *ngIf="i < zoneField.elements.length -1">{{ type }}, </span>
+                        <span *ngIf="i == zoneField.elements.length -1">{{ type }}</span>
+                    </span>
+                </span>
+                <span *ngIf="zoneField.title != 'monsters'">{{ zoneField.title }}: 
+                    <span class="text" *ngFor="let type of zoneField.elements; let i=index">
+                        <span *ngIf="i < zoneField.elements.length -1">{{ type }}, </span>
+                        <span *ngIf="i == zoneField.elements.length -1">{{ type }}</span>
+                    </span>
+                </span>
+                <br>
+            </span>
+            <br><br>
+        </p>
+        <p *ngIf="zone.notable_npcs.length > 0"><span class="title">Notable NPC's<br></span>
+            <span *ngFor="let zoneField of zone.notable_npcs">
+                <span *ngIf="zoneField.title == 'npcs'">
+                    <span class="text" *ngFor="let npc of zoneField.elements; let i=index">
+                        <span *ngIf="i < zoneField.elements.length -1">{{ npc }}, </span>
+                        <span *ngIf="i == zoneField.elements.length -1">{{ npc }}</span>
+                    </span>
+                </span>
+                <span *ngIf="zoneField.title != 'npcs'"> {{zoneField.title}}: 
+                    <span class="text" *ngFor="let npc of zoneField.elements; let i=index">
+                        <span *ngIf="i < zoneField.elements.length -1">{{ npc }}, </span>
+                        <span *ngIf="i == zoneField.elements.length -1">{{ npc }}</span>
+                    </span>
+                </span>
+                <br>
+            </span>
+            <br><br>
+        </p>
+        <p *ngIf="zone.unique_items.length > 0"><span class="title">Unique Items<br></span>
+            <span *ngFor="let zoneField of zone.unique_items">
+                <span *ngIf="zoneField.title == 'items'">
+                    <span class="text" *ngFor="let item of zoneField.elements; let i=index">
+                        <span *ngIf="i < zoneField.elements.length -1">{{ item }}, </span>
+                        <span *ngIf="i == zoneField.elements.length -1">{{ item }}</span>
+                    </span>
+                </span>
+                <span *ngIf="zoneField.title != 'items'">{{ zoneField.title }}: 
+                    <span class="text" *ngFor="let item of zoneField.elements; let i=index">
+                        <span *ngIf="i < zoneField.elements.length -1">{{ item }}, </span>
+                        <span *ngIf="i == zoneField.elements.length -1">{{ item }}</span>
+                    </span>
+                </span>
+                <br>
+                <br>
+            </span>
+            <br><br>
+        </p>
+    </div>
+</div>
+
+
+<div fxLayout="column"
+    fxLayoutAlign="center center"
+    class="dark-background zone mat-typography"
+    *ngIf="zone">
+    <div fxFlex fxFlexFill fxHide.gt-xs>
+        <mat-tab-group dynamicHeight="true">
+            <mat-tab *ngFor="let map of maps" label="{{ map.name }}">
+                <a [routerLink]="['/maps/', zone.name, map.name]">
+                    <img class="tab-map" src="{{ map.img_link }}" alt="{{map.name}}">
+                </a>
+                <div *ngFor="let key of map.location_key">
+                    <p class="text">{{ key }}</p>
+                </div>
+                <div *ngFor="let comment of map.comments">
+                    <p class="text">{{ comment }}</p>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    <div fxHide.lt-sm class="tab-map-center">
+        <mat-tab-group dynamicHeight="true">
+            <mat-tab *ngFor="let map of maps" label="{{ map.name }}">
+                <mat-list-item>
+                    <a [routerLink]="['/maps/', zone.name, map.name]">
+                        <img class="tab-map-center" src="{{ map.img_link }}" alt="map.name">
+                    </a>
+                </mat-list-item>
+                <mat-list-item class="center">
+                    <br><br>
+                    <p class="text"><span *ngFor="let key of map.location_key">{{ key }}<br></span></p>
+                </mat-list-item>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>
+
+<div fxLayout="column"
+    fxLayoutAlign="center center"
+    class="dark-background zone mat-typography">
+    <div fxFlexFill *ngIf="zone">
+        <p *ngIf="zone.history.length > 0"><span class="title">History<br></span>
+            <span class="text" *ngFor="let line of zone.history; let i=index">
+                <span *ngIf="i < zone.history.length -1">{{ line }}, </span>
+                <span *ngIf="i == zone.history.length -1">{{ line }}</span>
+            </span>
+            <br><br>
+        </p>
+        <p *ngIf="zone.lore.length > 0"><span class="title">Lore<br></span>
+            <span *ngFor="let zoneField of zone.lore">{{ zoneField.title }}<br>
+                <span class="text" *ngFor="let element of zoneField.category; let i=index">
+                    <span *ngIf="i < zoneField.category.length -1">{{ element }}, </span>
+                    <span *ngIf="i == zoneField.category.length -1">{{ element }}</span>
+                </span>
+                <br><br>
+            </span>
+        </p>
+        <p *ngIf="zone.description.length > 0"><span class="title">Description<br></span>
+            <span class="text" *ngFor="let line of zone.description; let i=index">
+                <span *ngIf="i < zone.description.length - 1">{{ line }}<br><br></span>
+                <span *ngIf="i == zone.description.length - 1">{{ line }}</span>
+            </span>
+            <br><br>
+        </p>
+        <p *ngIf="zone.dangers.length > 0"><span class="title">Dangers<br></span>
+            <span class="text" *ngFor="let line of zone.dangers; let i=index">
+                <span *ngIf="i < zone.dangers.length - 1">{{ line }}<br><br></span>
+                <span *ngIf="i == zone.dangers.length - 1">{{ line }}</span>
+            </span>
+            <br><br>
+        </p>
+        <p *ngIf="zone.benefits.length > 0"><span class="title">Benefits<br></span>
+            <span class="text" *ngFor="let line of zone.benefits; let i=index">
+                <span *ngIf="i < zone.benefits.length - 1">{{ line }}<br><br></span>
+                <span *ngIf="i == zone.benefits.length - 1">{{ line }}</span>
+            </span>
+            <span *ngIf="zone.benefits_items">
+                <br><br>
+                <span class="text" *ngFor="let element of zone.benefits_items.elements">
+                    <span>{{ element.quest_name }}<br></span>
+                    <span *ngFor="let component of element.components; let i=index">
+                        <span>{{ component }}<br></span>
+                    </span>
+                    <span *ngFor="let class of element.reward_used_by; let i=index">
+                            <span *ngIf="i < element.reward_used_by.length - 1">{{ class }},</span>
+                            <span *ngIf="i == element.reward_used_by.length - 1"> {{ class }}<br></span>
+                    </span>
+                    <span>{{ element.reward }}<br></span>
+                    <span>{{ element.turn_in_npc }}<br></span>   
+
+                    <br>
+                    
+                </span>
+                
+            </span>
+            <br><br>
+        </p>
+        <p *ngIf="zone.travel_to_and_fro.length > 0"><span class="title">Travelling to and from {{ zone.name }}<br></span>
+            <span class="text" *ngFor="let line of zone.travel_to_and_fro; let i=index">
+                <span *ngIf="i < zone.travel_to_and_fro.length - 1">{{ line }}<br><br></span>
+                <span *ngIf="i == zone.travel_to_and_fro.length - 1">{{ line }}</span>
+            </span>
+            <br><br>
+        </p>
+        <p *ngIf="zone.surr_areas != null"><span class="title">Surrounding Areas<br></span>
+            <span class="text" *ngFor="let line of zone.surr_areas; let i=index">
+                <span *ngIf="i < zone.surr_areas.length - 1">{{ line }} </span>
+                <span *ngIf="i == zone.surr_areas.length - 1">{{ line }}</span>
+            </span>
+            <br><br>
+        </p>
+
+        <p *ngIf="zone.local_color != null"><span class="title">{{ zone.local_color.title }}<br></span>
+            <span class="title" style="font-size: 100%">People<br></span>
+            <span class="text">{{ zone.local_color.people }}<br><br></span>
+            <span class="title" style="font-size: 100%">Places<br></span>
+            <span class="text">{{ zone.local_color.places }}<br><br></span>  
+        </p>  
+        
+        <p *ngIf="zone.places != null"><span class="title">Places<br></span>
+            <span class="text" *ngFor="let line of zone.places; let i=index">
+                <span *ngIf="i < zone.places.length - 1">{{ line }}<br><br></span>
+                <span *ngIf="i == zone.places.length - 1">{{ line }}</span>
+            </span>
+            <br><br>
+        </p>        
+        <p *ngIf="zone.people != null"><span class="title">People<br></span>
+            <span class="text" *ngFor="let line of zone.people; let i=index">
+                <span *ngIf="i < zone.people.length - 1">{{ line }}<br><br></span>
+                <span *ngIf="i == zone.people.length - 1">{{ line }}</span>
+            </span>
+            <br><br>
+        </p>
+        <p *ngIf="zone.strategy != null"><span class="title">Strategy<br></span>
+            <span  *ngFor="let strat of zone.strategy">
+                <span *ngIf="strat.title">
+                    {{ strat.title }}
+                </span>
+                <br>
+                <span *ngIf="strat.category.length > 0">
+                    <span class="text" *ngFor="let line of strat.category; let i=index">
+                        <span *ngIf="i < strat.category.length - 1">{{ line }}<br></span>
+                        <span *ngIf="i == strat.category.length - 1">{{ line }}</span>
+                    </span>
+                    <br><br>
+                </span>
+
+                <span *ngIf="strat.elements.length > 0">
+                    <span class="text" *ngFor="let line of strat.elements; let i=index">
+                        <span *ngIf="i < strat.elements.length - 1">{{ line }}<br><br></span>
+                        <span *ngIf="i == strat.elements.length - 1">{{ line }}</span>
+                    </span>
+                    <br><br>
+                </span>
+            </span>            
+            <br><br>
+        </p>
+
+        <p *ngIf="zone.walkthrough.length > 0"><span class="title">Walkthrough<br></span>
+            <span  *ngFor="let ele of zone.walkthrough">
+                <span *ngIf="ele.title">
+                    {{ ele.title }}
+                    <br>
+                </span>
+                
+                <span *ngIf="ele.elements">
+                    <span class="text" *ngFor="let line of ele.elements; let i=index">
+                        <span *ngIf="i < ele.elements.length - 1">{{ line }}<br></span>
+                        <span *ngIf="i == ele.elements.length - 1">{{ line }}</span>
+                        
+                    </span>
+                    <br><br>                    
+                </span>
+            </span>            
+            <br><br>
+        </p>
+
+    </div>
+</div>
+
+

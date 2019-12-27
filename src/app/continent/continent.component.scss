@@ -1,0 +1,75 @@
+.map {
+    color: floralwhite;
+    text-align: center;
+    margin: 0px 0px 0px 0px;
+    background: #000000;
+    padding: 0px 40px 0px 40px;
+    
+}
+
+::ng-deep .mat-expansion-panel-body {
+    padding: 1vh 1vh 1vh 1vh !important; 
+}
+
+::ng-deep .mat-list-item-content {
+    padding: 0px 0px 0px 0px !important;
+}
+
+.map-sm {
+    color: floralwhite;
+    text-align: center;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 50px 0px 50px;
+}
+
+.accordion {
+    margin: 0px 0px 0px 0px;
+    padding: 10vh 5vh 10vh 5vh;
+    z-index: 0;
+}
+
+.btn-text {
+    width: 100%;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+::ng-deep .mat-button {
+    width: 100%;
+    padding: 0px 0px 0px 0px !important;
+}
+
+.map-img {
+    width: 100%;
+    flex:1 1 auto;    
+}
+
+.title {
+    padding: 55px 0px 55px 0px;
+}
+
+
+.title-xs {
+    padding: 20px 0px 20px 0px;
+}
+
+.map-container-xs {
+    padding: 12vh 0vh 85vh 0vh;
+    min-height: 180vh;
+}
+
+.map-container {
+    padding: 20vh 0vh 90vh 0vh;
+    min-height: 180vh;
+}
+
+.nav {
+    padding: 10vh 3vh 3vh 3vh;
+    
+    text-align: left;
+    font-size: 90%;
+}
+
+.link:hover {
+    color: #2c3539;
+}

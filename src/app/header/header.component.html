@@ -1,0 +1,460 @@
+<div fxLayout="row"
+  fxLayoutAlign="start center"
+  class="header xs menu-toolbar"
+  fxHide.gt-xs>
+
+  <div fxFlex="5">
+      <button class="menu-button" mat-button color="accent-light" [matMenuTriggerFor]="menuToggleSm">
+        <span class="fas fa-bars xs-icon"></span>
+      </button>
+
+      <mat-menu class="xs-menu" #menuToggleSm="matMenu">
+        <ng-template matMenuContent>
+          <a class="menu" mat-menu-item routerLink="/home" routerLinkActive="active">Home</a>
+          <a class="menu" mat-menu-item [matMenuTriggerFor]="antonicaMenuSm">Antonica</a>
+          <a class="menu" mat-menu-item [matMenuTriggerFor]="faydwerMenuSm">Faydwer</a>
+          <a class="menu" mat-menu-item [matMenuTriggerFor]="odusMenuSm">Odus</a>
+          <a class="menu" mat-menu-item [matMenuTriggerFor]="kunarkMenuSm">Kunark</a>
+          <a class="menu" mat-menu-item [matMenuTriggerFor]="veliousMenuSm">Velious</a>
+          <a class="menu" mat-menu-item [matMenuTriggerFor]="planesMenuSm">Planes</a>
+        </ng-template>
+      </mat-menu>
+
+      <mat-menu class="xs-menu" #antonicaMenuSm="matMenu">
+        <ng-template matMenuContent>
+          <a class="menu" mat-menu-item routerLink="/continent/antonica" routerLinkActive="active" class="menu">Antonica</a>
+          <button class="menu" mat-menu-item [matMenuTriggerFor]="antonicaCitiesMenu">Cities</button>
+          <button class="menu" mat-menu-item [matMenuTriggerFor]="antonicaDungeonsMenu">Dungeons</button>
+          <button class="menu" mat-menu-item [matMenuTriggerFor]="antonicaOutdoorMenu">Outdoors</button>
+        </ng-template>
+      </mat-menu>
+
+      <mat-menu class="xs-menu" #faydwerMenuSm="matMenu">
+        <ng-template matMenuContent>
+          <a class="menu" mat-menu-item routerLink="/continent/faydwer" routerLinkActive="active" class="menu">Faydwer</a>
+          <button class="menu" mat-menu-item [matMenuTriggerFor]="faydwerCitiesMenu">Cities</button>
+          <button class="menu" mat-menu-item [matMenuTriggerFor]="faydwerDungeonsMenu">Dungeons</button>
+          <button class="menu" mat-menu-item [matMenuTriggerFor]="faydwerOutdoorMenu">Outdoors</button>
+        </ng-template>
+      </mat-menu>
+
+      <mat-menu class="xs-menu" #odusMenuSm="matMenu">
+        <ng-template matMenuContent>
+          <a class="menu" mat-menu-item routerLink="/continent/odus" routerLinkActive="active" class="menu">Odus</a>
+          <button class="menu" mat-menu-item [matMenuTriggerFor]="odusCitiesMenu">Cities</button>
+          <button class="menu" mat-menu-item [matMenuTriggerFor]="odusDungeonsMenu">Dungeons</button>
+          <button class="menu" mat-menu-item [matMenuTriggerFor]="odusOutdoorMenu">Outdoors</button>
+        </ng-template>
+      </mat-menu>
+    
+      <mat-menu class="xs-menu" #kunarkMenuSm="matMenu">
+        <ng-template matMenuContent>
+          <a class="menu" mat-menu-item routerLink="/continent/kunark" routerLinkActive="active" class="menu">Kunark</a>
+          <button class="menu" mat-menu-item [matMenuTriggerFor]="kunarkCitiesMenu">Cities</button>
+          <button class="menu" mat-menu-item [matMenuTriggerFor]="kunarkDungeonsMenu">Dungeons</button>
+          <button class="menu" mat-menu-item [matMenuTriggerFor]="kunarkOutdoorMenu">Outdoors</button>
+        </ng-template>
+      </mat-menu>
+
+
+      <mat-menu class="xs-menu" #veliousMenuSm="matMenu">
+        <ng-template matMenuContent>
+          <a class="menu" mat-menu-item routerLink="/continent/velious" routerLinkActive="active" class="menu">Velious</a>
+          <button class="menu" mat-menu-item [matMenuTriggerFor]="veliousCitiesMenu">Cities</button>
+          <button class="menu" mat-menu-item [matMenuTriggerFor]="veliousDungeonsMenu">Dungeons</button>
+          <button class="menu" mat-menu-item [matMenuTriggerFor]="veliousOutdoorMenu">Outdoors</button>
+        </ng-template>
+      </mat-menu>    
+
+
+      <mat-menu class="xs-menu" #planesMenuSm="matMenu">
+        <ng-template matMenuContent>
+          <a class="menu" mat-menu-item routerLink="/continent/planes" routerLinkActive="active" class="menu">Planes</a>
+          <div *ngFor="let zone of planesZones">
+            <a class="menu" mat-menu-item [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+          </div>
+        </ng-template>
+      </mat-menu>
+      
+      <mat-menu class="xs-menu"  #antonicaCitiesMenu>
+        <ng-template matMenuContent>
+          <div *ngFor="let zone of antonicaZones">
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+          </div>
+        </ng-template>
+      </mat-menu>
+    
+      <mat-menu class="xs-menu" #antonicaDungeonsMenu>
+        <ng-template matMenuContent>
+          <div *ngFor="let zone of antonicaZones">
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+          </div>
+        </ng-template>
+      </mat-menu>
+  
+      <mat-menu class="xs-menu" #antonicaOutdoorMenu>
+        <ng-template matMenuContent>
+          <div *ngFor="let zone of antonicaZones">
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+          </div>
+        </ng-template>
+      </mat-menu>
+  
+      <mat-menu class="xs-menu" #faydwerCitiesMenu>
+        <ng-template matMenuContent>
+          <div *ngFor="let zone of faydwerZones">
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+          </div>
+        </ng-template>
+      </mat-menu>
+    
+      <mat-menu class="xs-menu" #faydwerDungeonsMenu>
+        <ng-template matMenuContent>
+          <div *ngFor="let zone of faydwerZones">
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+          </div>
+        </ng-template>
+      </mat-menu>
+  
+      <mat-menu class="xs-menu" #faydwerOutdoorMenu>
+        <ng-template matMenuContent>
+          <div *ngFor="let zone of faydwerZones">
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>  
+          </div>
+        </ng-template>
+      </mat-menu>
+    
+      <mat-menu class="xs-menu" #odusCitiesMenu>
+        <ng-template matMenuContent>
+          <div *ngFor="let zone of odusZones">
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+          </div>
+        </ng-template>
+      </mat-menu>
+    
+      <mat-menu class="xs-menu" #odusDungeonsMenu>
+        <ng-template matMenuContent>
+          <div *ngFor="let zone of odusZones">
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+          </div>
+        </ng-template>
+      </mat-menu>
+  
+      <mat-menu class="xs-menu" #odusOutdoorMenu>
+        <ng-template matMenuContent>
+          <div *ngFor="let zone of odusZones">
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+          </div>
+        </ng-template>
+      </mat-menu>
+    
+      <mat-menu class="xs-menu" #kunarkCitiesMenu>
+        <ng-template matMenuContent>
+          <div *ngFor="let zone of kunarkZones">
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+          </div>
+        </ng-template>
+      </mat-menu>
+    
+      <mat-menu class="xs-menu" #kunarkDungeonsMenu>
+        <ng-template matMenuContent>
+          <div *ngFor="let zone of kunarkZones">
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+          </div>
+        </ng-template>
+      </mat-menu>
+  
+      <mat-menu class="xs-menu" #kunarkOutdoorMenu>
+        <ng-template matMenuContent>
+          <div *ngFor="let zone of kunarkZones">
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+          </div>
+        </ng-template>
+      </mat-menu>
+  
+      <mat-menu class="xs-menu" #veliousCitiesMenu>
+        <ng-template matMenuContent>
+          <div *ngFor="let zone of veliousZones">
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+          </div>
+        </ng-template>
+      </mat-menu>
+    
+      <mat-menu class="xs-menu" #veliousDungeonsMenu>
+        <ng-template matMenuContent>
+          <div *ngFor="let zone of veliousZones">
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+          </div>
+        </ng-template>
+      </mat-menu>
+  
+      <mat-menu class="xs-menu" #veliousOutdoorMenu>
+        <ng-template matMenuContent>
+          <div *ngFor="let zone of veliousZones">
+            <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" routerLink="['/zones/', zone.name]">{{ zone.name }}</a>
+          </div>
+        </ng-template>
+      </mat-menu>
+      
+    <mat-menu class="xs-menu" #planesMenu="matMenu">
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of planesZones">
+          <a class="menu" mat-menu-item [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+
+      <div fxFlex="85"></div>
+
+
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div fxLayout="row"
+  fxLayoutAlign="start center"
+  fxLayoutGap="15px"
+  fxHide.lt-sm
+  class="menu-toolbar header sm">
+
+
+  <div fxFlex="5">
+
+
+    <button mat-button color="accent-light" [matMenuTriggerFor]="menuToggle">
+      <span class="fas fa-bars sm-icon"></span>
+    </button>
+
+
+    
+
+    <mat-menu  #menuToggle="matMenu">
+      <ng-template matMenuContent>
+        <a class="menu" mat-menu-item routerLink="/home" routerLinkActive="active">Home</a>
+        <a class="menu" mat-menu-item [matMenuTriggerFor]="antonicaMenu"
+          routerLink="/continent/antonica" routerLinkActive="active">Antonica</a>
+        <a class="menu" mat-menu-item [matMenuTriggerFor]="faydwerMenu"
+          routerLink="/continent/faydwer" routerLinkActive="active">Faydwer</a>
+        <a class="menu" mat-menu-item [matMenuTriggerFor]="odusMenu"
+          routerLink="/continent/odus" routerLinkActive="active">Odus</a>
+        <a class="menu" mat-menu-item [matMenuTriggerFor]="kunarkMenu"
+          routerLink="/continent/kunark" routerLinkActive="active">Kunark</a>
+        <a class="menu" mat-menu-item [matMenuTriggerFor]="veliousMenu"
+          routerLink="/continent/velious" routerLinkActive="active">Velious</a>
+        <a class="menu" mat-menu-item [matMenuTriggerFor]="planesMenu"
+          routerLink="/continent/planes" routerLinkActive="active">Planes</a>
+      </ng-template>
+    </mat-menu>
+
+    <mat-menu  #antonicaMenu="matMenu">
+      <ng-template matMenuContent>
+        <button class="menu"mat-menu-item [matMenuTriggerFor]="antonicaCitiesMenu">Cities</button>
+        <button class="menu"mat-menu-item [matMenuTriggerFor]="antonicaDungeonsMenu">Dungeons</button>
+        <button class="menu" mat-menu-item [matMenuTriggerFor]="antonicaOutdoorMenu">Outdoors</button>
+      </ng-template>
+    </mat-menu>
+
+    <mat-menu  #faydwerMenu="matMenu">
+      <ng-template matMenuContent>
+        <button class="menu" mat-menu-item [matMenuTriggerFor]="faydwerCitiesMenu">Cities</button>
+        <button class="menu" mat-menu-item [matMenuTriggerFor]="faydwerDungeonsMenu">Dungeons</button>
+        <button class="menu" mat-menu-item [matMenuTriggerFor]="faydwerOutdoorMenu">Outdoors</button>
+      </ng-template>
+    </mat-menu>  
+
+    <mat-menu  #odusMenu="matMenu">
+      <ng-template matMenuContent>
+        <button class="menu" mat-menu-item [matMenuTriggerFor]="odusCitiesMenu">Cities</button>
+        <button class="menu" mat-menu-item [matMenuTriggerFor]="odusDungeonsMenu">Dungeons</button>
+        <button class="menu" mat-menu-item [matMenuTriggerFor]="odusOutdoorMenu">Outdoors</button>
+      </ng-template>a
+    </mat-menu>
+
+    <mat-menu  #kunarkMenu="matMenu">
+      <ng-template matMenuContent>
+        <button class="menu" mat-menu-item [matMenuTriggerFor]="kunarkCitiesMenu">Cities</button>
+        <button class="menu" mat-menu-item [matMenuTriggerFor]="kunarkDungeonsMenu">Dungeons</button>
+        <button class="menu" mat-menu-item [matMenuTriggerFor]="kunarkOutdoorMenu">Outdoors</button>
+      </ng-template>
+    </mat-menu>
+
+    <mat-menu  #veliousMenu="matMenu">
+      <ng-template matMenuContent>
+        <button class="menu" mat-menu-item [matMenuTriggerFor]="veliousCitiesMenu">Cities</button>
+        <button class="menu" mat-menu-item [matMenuTriggerFor]="veliousDungeonsMenu">Dungeons</button>
+        <button class="menu" mat-menu-item [matMenuTriggerFor]="veliousOutdoorMenu">Outdoors</button>
+      </ng-template>
+    </mat-menu>  
+  
+
+
+
+
+
+  
+
+
+    <mat-menu  #antonicaCitiesMenu>
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of antonicaZones">
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+  
+    <mat-menu  #antonicaDungeonsMenu>
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of antonicaZones">
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+
+    <mat-menu  #antonicaOutdoorMenu>
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of antonicaZones">
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+
+    <mat-menu  #faydwerCitiesMenu>
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of faydwerZones">
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+  
+    <mat-menu  #faydwerDungeonsMenu>
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of faydwerZones">
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+
+    <mat-menu  #faydwerOutdoorMenu>
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of faydwerZones">
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>  
+        </div>
+      </ng-template>
+    </mat-menu>
+  
+    <mat-menu  #odusCitiesMenu>
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of odusZones">
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+  
+    <mat-menu  #odusDungeonsMenu>
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of odusZones">
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+
+    <mat-menu  #odusOutdoorMenu>
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of odusZones">
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+  
+    <mat-menu  #kunarkCitiesMenu>
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of kunarkZones">
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+  
+    <mat-menu  #kunarkDungeonsMenu>
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of kunarkZones">
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+
+    <mat-menu  #kunarkOutdoorMenu>
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of kunarkZones">
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+
+    <mat-menu  #veliousCitiesMenu>
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of veliousZones">
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'city'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+  
+    <mat-menu  #veliousDungeonsMenu>
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of veliousZones">
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'indoor'" [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+
+    <mat-menu  #veliousOutdoorMenu>
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of veliousZones">
+          <a class="menu" mat-menu-item *ngIf="zone.zone_type.toLowerCase() == 'outdoor'" routerLink="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+
+
+
+
+
+
+
+    <mat-menu  #planesMenu="matMenu">
+      <ng-template matMenuContent>
+        <div *ngFor="let zone of planesZones">
+          <a class="menu" mat-menu-item [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </div>
+      </ng-template>
+    </mat-menu>
+  
+
+
+  </div>
+
+
+
+  <div fxFlex="85">
+    <mat-toolbar class="header-toolbar">
+      <a mat-button color="accent" routerLink="/home">Home</a>
+      <a mat-button color="accent" routerLink="/continent/antonica" routerLinkActive="active">Antonica</a>
+      <a mat-button color="accent" routerLink="/continent/faydwer" routerLinkActive="active">Faydwer</a>
+      <a mat-button color="accent" routerLink="/continent/odus" routerLinkActive="active">Odus</a>
+      <a mat-button color="accent" routerLink="/continent/kunark" routerLinkActive="active">Kunark</a>
+      <a mat-button color="accent" routerLink="/continent/velious" routerLinkActive="active">Velious</a>
+      <a mat-button color="accent" routerLink="/continent/planes" routerLinkActive="active">Planes</a>
+    </mat-toolbar>
+  </div>
+
+  
+
+ 
+</div>
