@@ -75,7 +75,7 @@ app.use("*", function(req, res, next) {
 
 
 // uncomment after placing your favicon in /public
-app.use(favicon(join("dist/browser/favicon.png")));
+//app.use(favicon("dist/browser/favicon.png"));
 
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
