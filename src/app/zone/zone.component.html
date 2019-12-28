@@ -223,7 +223,7 @@
             </span>
             <br><br>
         </p>
-        <p *ngIf="zone.surr_areas != null"><span class="title">Surrounding Areas<br></span>
+        <p *ngIf="zone.surr_areas != undefined"><span class="title">Surrounding Areas<br></span>
             <span class="text" *ngFor="let line of zone.surr_areas; let i=index">
                 <span *ngIf="i < zone.surr_areas.length - 1">{{ line }} </span>
                 <span *ngIf="i == zone.surr_areas.length - 1">{{ line }}</span>
@@ -231,28 +231,28 @@
             <br><br>
         </p>
 
-        <p *ngIf="zone.local_color != null"><span class="title">{{ zone.local_color.title }}<br></span>
+        <p *ngIf="zone.local_color != undefined"><span class="title">{{ zone.local_color.title }}<br></span>
             <span class="title" style="font-size: 100%">People<br></span>
             <span class="text">{{ zone.local_color.people }}<br><br></span>
             <span class="title" style="font-size: 100%">Places<br></span>
             <span class="text">{{ zone.local_color.places }}<br><br></span>  
         </p>  
         
-        <p *ngIf="zone.places != null"><span class="title">Places<br></span>
+        <p *ngIf="zone.places != undefined"><span class="title">Places<br></span>
             <span class="text" *ngFor="let line of zone.places; let i=index">
                 <span *ngIf="i < zone.places.length - 1">{{ line }}<br><br></span>
                 <span *ngIf="i == zone.places.length - 1">{{ line }}</span>
             </span>
             <br><br>
         </p>        
-        <p *ngIf="zone.people != null"><span class="title">People<br></span>
+        <p *ngIf="zone.people != undefined"><span class="title">People<br></span>
             <span class="text" *ngFor="let line of zone.people; let i=index">
                 <span *ngIf="i < zone.people.length - 1">{{ line }}<br><br></span>
                 <span *ngIf="i == zone.people.length - 1">{{ line }}</span>
             </span>
             <br><br>
         </p>
-        <p *ngIf="zone.strategy != null"><span class="title">Strategy<br></span>
+        <p *ngIf="zone.strategy != undefined"><span class="title">Strategy<br></span>
             <span  *ngFor="let strat of zone.strategy">
                 <span *ngIf="strat.title">
                     {{ strat.title }}
