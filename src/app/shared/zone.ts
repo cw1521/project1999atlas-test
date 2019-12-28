@@ -47,19 +47,10 @@ export class Zone {
         people: [String],
         places: [String]
     }
-    benefits_items: Quest
-    // {
-    //     category: String,
-    //     elements: [
-    //         {
-    //             reward_used_by: [String],
-    //             reward: String,
-    //             quest_name: String,
-    //             components: [String],
-    //             turn_in_npc: String
-    //         }
-    //     ]
-    // }
+    benefits_items: {
+        category: String,
+        elements: [Quest]
+    }
     strategy: ZoneField
 
     // {
