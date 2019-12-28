@@ -230,7 +230,7 @@
             </span>
             <br><br>
         </p>
-        <p *ngIf="zone.surr_areas !== null"><span class="title">Surrounding Areas<br></span>
+        <p *ngIf="propertyExists('surr_areas')"><span class="title">Surrounding Areas<br></span>
             <span class="text" *ngFor="let line of zone.surr_areas; let i=index">
                 <span *ngIf="i < zone.surr_areas.length - 1">{{ line }} </span>
                 <span *ngIf="i == zone.surr_areas.length - 1">{{ line }}</span>
