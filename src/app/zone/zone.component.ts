@@ -45,7 +45,7 @@ export class ZoneComponent implements OnInit {
     }); 
   }
   
-  propertyExists(prop) : boolean {
+  hasProperty(prop) : boolean {
     if (prop in this.keys && this.zone[prop] !== null && this.zone[prop] !== []) return true;
     else return false;
   }

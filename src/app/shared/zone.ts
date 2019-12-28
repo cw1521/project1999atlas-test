@@ -8,15 +8,10 @@ export class Zone {
     location: String
     adj_zones: String[]
     min_player_level: String
-    monster_levels: Number[]
+    monster_levels: String[]
     monster_types: ZoneField[]
-    // [{
-    //     title: String,
-    //     elements: [String],
-    //     category: [String]
-    // }]
-    notable_npcs: String[]
-    unique_items: String[]
+    notable_npcs: ZoneField[]
+    unique_items: ZoneField[]
     in_or_outdoor: String[]
     description: String[]
     dangers: String[]
@@ -30,14 +25,6 @@ export class Zone {
     places: String[]
     people: String[]
     maps: Map[]
-    // [{
-    //     name: String,
-    //     img_link: String,
-    //     location_key: [String],
-    //     comments: [String],
-    //     continent: String,
-    //     zone: String
-    // }]
     continent: String
     zone_type: String
     lore: String[]
@@ -47,11 +34,9 @@ export class Zone {
         people: String[],
         places: String[]
     }
-    benefits_items: {
-        category: String,
-        elements: Quest[]
-    }
+    benefits_items: ZoneField
     strategy: ZoneField
+    related_quests: ZoneField[]
 
     // {
     //     title: String,

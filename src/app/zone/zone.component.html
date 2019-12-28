@@ -230,7 +230,7 @@
             </span>
             <br><br>
         </p>
-        <p *ngIf="propertyExists('surr_areas')"><span class="title">Surrounding Areas<br></span>
+        <p *ngIf="hasProperty('surr_areas')"><span class="title">Surrounding Areas<br></span>
             <span class="text" *ngFor="let line of zone.surr_areas; let i=index">
                 <span *ngIf="i < zone.surr_areas.length - 1">{{ line }} </span>
                 <span *ngIf="i == zone.surr_areas.length - 1">{{ line }}</span>
@@ -238,7 +238,7 @@
             <br><br>
         </p>
 
-        <p *ngIf="propertyExists('local_color')"><span class="title">{{ zone.local_color.title }}<br></span>
+        <p *ngIf="hasProperty('local_color')"><span class="title">{{ zone.local_color.title }}<br></span>
             <span class="title" style="font-size: 100%">People<br></span>
             <span class="text">{{ zone.local_color.people }}<br><br></span>
             <span class="title" style="font-size: 100%">Places<br></span>
@@ -259,7 +259,7 @@
             </span>
             <br><br>
         </p> -->
-        <p *ngIf="propertyExists('strategy')"><span class="title">Strategy<br></span>
+        <p *ngIf="hasProperty('strategy')"><span class="title">Strategy<br></span>
             <span  *ngFor="let strat of zone.strategy">
                 <span *ngIf="strat.title">
                     {{ strat.title }}
@@ -284,7 +284,7 @@
             <br><br>
         </p>
 
-        <p *ngIf="zone.walkthrough.length > 0"><span class="title">Walkthrough<br></span>
+        <p *ngIf="hasProperty('walkthrough')"><span class="title">Walkthrough<br></span>
             <span  *ngFor="let ele of zone.walkthrough">
                 <span *ngIf="ele.title">
                     {{ ele.title }}
