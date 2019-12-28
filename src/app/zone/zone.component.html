@@ -153,10 +153,10 @@
                     </a>
                 </mat-list-item>
                 <div *ngIf="map.location_key.length > 0">
-                <mat-list-item class="center">
-                    <br><br>
-                    <p class="text"><span *ngFor="let key of map.location_key">{{ key }}<br></span></p>
-                </mat-list-item>
+                    <mat-list-item class="center">
+                        <br><br>
+                        <p class="text"><span *ngFor="let key of map.location_key">{{ key }}<br></span></p>
+                    </mat-list-item>
                 </div>
             </mat-tab>
         </mat-tab-group>
@@ -238,7 +238,7 @@
             <br><br>
         </p>
 
-        <p *ngIf="zone.local_color  !== null && zone.local_color !== undefined"><span class="title">{{ zone.local_color.title }}<br></span>
+        <p *ngIf="propertyExists('local_color')"><span class="title">{{ zone.local_color.title }}<br></span>
             <span class="title" style="font-size: 100%">People<br></span>
             <span class="text">{{ zone.local_color.people }}<br><br></span>
             <span class="title" style="font-size: 100%">Places<br></span>
@@ -259,7 +259,7 @@
             </span>
             <br><br>
         </p> -->
-        <p *ngIf="zone.strategy"><span class="title">Strategy<br></span>
+        <p *ngIf="propertyExists('strategy')"><span class="title">Strategy<br></span>
             <span  *ngFor="let strat of zone.strategy">
                 <span *ngIf="strat.title">
                     {{ strat.title }}
@@ -291,7 +291,7 @@
                     <br>
                 </span>
                 
-                <span *ngIf="ele.elements">
+                <span *ngIf="ele.elements.length > 0">
                     <span class="text" *ngFor="let line of ele.elements; let i=index">
                         <span *ngIf="i < ele.elements.length - 1">{{ line }}<br></span>
                         <span *ngIf="i == ele.elements.length - 1">{{ line }}</span>

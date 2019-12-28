@@ -42,12 +42,12 @@ export class ZoneComponent implements OnInit {
       this.maps = this.zone.maps;
       this.zone.continent = this.zone.continent[0].toUpperCase()  + this.zone.continent.slice(1);
       
-    });
-
-
-
-
+    }); 
+  }
   
+  propertyExists(prop) : boolean {
+    if (prop in this.keys && this.zone[prop] !== null && this.zone[prop] !== []) return true;
+    else return false;
   }
 
 
