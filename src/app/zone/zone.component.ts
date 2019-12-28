@@ -16,6 +16,7 @@ import { MapService } from '../services/map.service';
 export class ZoneComponent implements OnInit {
   zone: Zone;
   maps: Map[];
+  keys: String[]
 
   constructor(@Inject(WINDOW) private window: any, private zoneService: ZoneService,
       private mapService: MapService,
@@ -37,6 +38,7 @@ export class ZoneComponent implements OnInit {
     this.zoneService.getZoneByName(params.get('zoneName'))
     .subscribe(zone => {
       this.zone = zone["data"];
+      this.keys = Object.keys(zone);
       this.maps = this.zone.maps;
       this.zone.continent = this.zone.continent[0].toUpperCase()  + this.zone.continent.slice(1);
       

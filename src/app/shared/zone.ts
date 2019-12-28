@@ -6,30 +6,30 @@ export class Zone {
     id: Number
     name: String
     location: String
-    adj_zones: [String]
+    adj_zones: String[]
     min_player_level: String
-    monster_levels: [Number]
-    monster_types: [ZoneField]
+    monster_levels: Number[]
+    monster_types: ZoneField[]
     // [{
     //     title: String,
     //     elements: [String],
     //     category: [String]
     // }]
-    notable_npcs: [String]
-    unique_items: [String]
-    in_or_outdoor: [String]
-    description: [String]
-    dangers: [String]
-    benefits: [String]
-    travel_to_and_fro: [String]
-    races: [String]
-    guilds: [String]
-    religions: [String]
-    tradeskills: [String]
-    surr_areas: [String]
-    places: [String]
-    people: [String]
-    maps: [Map]
+    notable_npcs: String[]
+    unique_items: String[]
+    in_or_outdoor: String[]
+    description: String[]
+    dangers: String[]
+    benefits: String[]
+    travel_to_and_fro: String[]
+    races: String[]
+    guilds: String[]
+    religions: String[]
+    tradeskills: String[]
+    surr_areas: String[]
+    places: String[]
+    people: String[]
+    maps: Map[]
     // [{
     //     name: String,
     //     img_link: String,
@@ -40,16 +40,16 @@ export class Zone {
     // }]
     continent: String
     zone_type: String
-    lore: [String]
-    history: [String]
+    lore: String[]
+    history: String[]
     local_color: {
         title: String,
-        people: [String],
-        places: [String]
+        people: String[],
+        places: String[]
     }
     benefits_items: {
         category: String,
-        elements: [Quest]
+        elements: Quest[]
     }
     strategy: ZoneField
 
@@ -58,7 +58,7 @@ export class Zone {
     //     elements: [String],
     //     category: [String]
     // }
-    walkthrough: [String]
+    walkthrough: String[]
 
     constructor() {
         this.id = null;
