@@ -8,6 +8,15 @@ export class Continent {
     cities: Zone[];
     planes: Zone[];
 
+    constructor() {
+        this.name = null;
+        this.img_link = null;
+        this.indoorZones = null;
+        this.outdoorZones = null;
+        this.cities = null;
+        this.planes = null;
+    }
+
     setCities(cities: Zone[]) {
         this.cities = cities;
     }
