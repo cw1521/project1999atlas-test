@@ -9,7 +9,7 @@ export class Zone {
     adj_zones: String[]
     min_player_level: String
     monster_levels: String[]
-    monster_types: ZoneField[]
+    monster_type: ZoneField[]
     notable_npcs: ZoneField[]
     unique_items: ZoneField[]
     in_or_outdoor: String[]
@@ -52,7 +52,7 @@ export class Zone {
         this.adj_zones = null;
         this.min_player_level = null;
         this.monster_levels = null;
-        this.monster_types = null;
+        this.monster_type = null;
         this.notable_npcs = null;
         this.unique_items = null;
         this.in_or_outdoor = null;

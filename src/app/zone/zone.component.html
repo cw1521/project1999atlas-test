@@ -61,8 +61,8 @@
             </span>
             <br><br>
         </p>
-        <p *ngIf="hasProperty('monster_types')"><span class="title">Types of Monsters<br></span>
-            <span *ngFor="let zoneField of zone.monster_types">
+        <p *ngIf="hasProperty('monster_type')"><span class="title">Types of Monsters<br></span>
+            <span *ngFor="let zoneField of zone.monster_type">
                 <span *ngIf="zoneField.title == 'monsters'">
                     <span class="text" *ngFor="let type of zoneField.elements; let i=index">
                         <span *ngIf="i < zoneField.elements.length -1">{{ type }}, </span>
