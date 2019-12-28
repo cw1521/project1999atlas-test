@@ -130,13 +130,13 @@
                 <a [routerLink]="['/maps/', zone.name, map.name]">
                     <img class="tab-map" src="{{ map.img_link }}" alt="{{map.name}}">
                 </a>
-                <div *ngIf="map.location_key !== null">
+                <div *ngIf="map.location_key.length > 0">
                     <div *ngFor="let key of map.location_key">
                         <p class="text">{{ key }}</p>
                     </div>
                 
                 </div>
-                <div *ngIf="map.comments !== null">
+                <div *ngIf="map.comments.length > 0">
                     <div *ngFor="let comment of map.comments">
                         <p class="text">{{ comment }}</p>
                     </div>
@@ -152,7 +152,7 @@
                         <img class="tab-map-center" src="{{ map.img_link }}" alt="map.name">
                     </a>
                 </mat-list-item>
-                <div *ngIf="map.location_key !== null">
+                <div *ngIf="map.location_key.length > 0">
                 <mat-list-item class="center">
                     <br><br>
                     <p class="text"><span *ngFor="let key of map.location_key">{{ key }}<br></span></p>
@@ -238,14 +238,14 @@
             <br><br>
         </p>
 
-        <p *ngIf="zone.local_color  !== null"><span class="title">{{ zone.local_color.title }}<br></span>
+        <p *ngIf="zone.local_color  !== null && zone.local_color !== undefined"><span class="title">{{ zone.local_color.title }}<br></span>
             <span class="title" style="font-size: 100%">People<br></span>
             <span class="text">{{ zone.local_color.people }}<br><br></span>
             <span class="title" style="font-size: 100%">Places<br></span>
             <span class="text">{{ zone.local_color.places }}<br><br></span>  
         </p>  
         
-        <p *ngIf="zone.places !== null"><span class="title">Places<br></span>
+        <!-- <p *ngIf="zone.places !== null"><span class="title">Places<br></span>
             <span class="text" *ngFor="let line of zone.places; let i=index">
                 <span *ngIf="i < zone.places.length - 1">{{ line }}<br><br></span>
                 <span *ngIf="i == zone.places.length - 1">{{ line }}</span>
@@ -258,8 +258,8 @@
                 <span *ngIf="i == zone.people.length - 1">{{ line }}</span>
             </span>
             <br><br>
-        </p>
-        <p *ngIf="zone.strategy !== null"><span class="title">Strategy<br></span>
+        </p> -->
+        <p *ngIf="zone.strategy !== null && 'strategy' in zone"><span class="title">Strategy<br></span>
             <span  *ngFor="let strat of zone.strategy">
                 <span *ngIf="strat.title">
                     {{ strat.title }}
@@ -284,7 +284,7 @@
             <br><br>
         </p>
 
-        <p *ngIf="zone.walkthrough !== null"><span class="title">Walkthrough<br></span>
+        <p *ngIf="zone.walkthrough !== null && 'walkthrough' in zone"><span class="title">Walkthrough<br></span>
             <span  *ngFor="let ele of zone.walkthrough">
                 <span *ngIf="ele.title">
                     {{ ele.title }}
