@@ -53,7 +53,7 @@
            
             <br><br>
         </p>
-        <p *ngIf="zone.monster_levels.length > 0"><span class="title">Level of Monsters<br></span>
+        <p *ngIf="hasProperty('monster_levels')"><span class="title">Level of Monsters<br></span>
             <span class="text" *ngFor="let level of zone.monster_levels; let i = index">
 
                 <span *ngIf="i < zone.monster_levels.length -1">{{ level }}, </span>
@@ -61,7 +61,7 @@
             </span>
             <br><br>
         </p>
-        <p *ngIf="zone.monster_types.length > 0"><span class="title">Types of Monsters<br></span>
+        <p *ngIf="hasProperty('monster_types')"><span class="title">Types of Monsters<br></span>
             <span *ngFor="let zoneField of zone.monster_types">
                 <span *ngIf="zoneField.title == 'monsters'">
                     <span class="text" *ngFor="let type of zoneField.elements; let i=index">
@@ -79,7 +79,7 @@
             </span>
             <br><br>
         </p>
-        <p *ngIf="zone.notable_npcs.length > 0"><span class="title">Notable NPC's<br></span>
+        <p *ngIf="hasProperty('notable_npcs')"><span class="title">Notable NPC's<br></span>
             <span *ngFor="let zoneField of zone.notable_npcs">
                 <span *ngIf="zoneField.title == 'npcs'">
                     <span class="text" *ngFor="let npc of zoneField.elements; let i=index">
@@ -97,7 +97,7 @@
             </span>
             <br><br>
         </p>
-        <p *ngIf="zone.unique_items.length > 0"><span class="title">Unique Items<br></span>
+        <p *ngIf="hasProperty('unique_items')"><span class="title">Unique Items<br></span>
             <span *ngFor="let zoneField of zone.unique_items">
                 <span *ngIf="zoneField.title == 'items'">
                     <span class="text" *ngFor="let item of zoneField.elements; let i=index">

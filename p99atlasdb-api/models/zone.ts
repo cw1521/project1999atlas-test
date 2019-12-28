@@ -6,14 +6,22 @@ var zoneSchema = new mongoose.Schema({
     location: String,
     adj_zones: [String],
     min_player_level: String,
-    monster_levels: [Number],
+    monster_levels: [String],
     monster_types: [{
         title: String,
         elements: [String],
         category: [String]
     }],
-    notable_npcs: [String],
-    unique_items: [String],
+    notable_npcs: [{
+        title: String,
+        elements: [String],
+        category: [String]
+    }],
+    unique_items: [{
+        title: String,
+        elements: [String],
+        category: [String]
+    }],
     in_or_outdoor: [String],
     description: [String],
     dangers: [String],
