@@ -39,7 +39,7 @@ export class ZoneComponent implements OnInit {
     .subscribe(zone => {
       this.zone = zone["data"];
       this.keys = Object.keys(this.zone);
-      console.log(this.keys);
+      //console.log(this.keys);
       this.maps = this.zone.maps;
       this.zone.continent = this.zone.continent[0].toUpperCase()  + this.zone.continent.slice(1);
       

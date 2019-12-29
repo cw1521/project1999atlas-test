@@ -1,4 +1,5 @@
 import mongoose, {Schema} from 'mongoose';
+import {ZoneField} from '../../src/app/shared/zoneField';
 
 var zoneSchema = new mongoose.Schema({
     id: Number,
@@ -7,21 +8,9 @@ var zoneSchema = new mongoose.Schema({
     adj_zones: [String],
     min_player_level: String,
     monster_level: [String],
-    monster_type: [{
-        title: String,
-        elements: [String],
-        category: [String]
-    }],
-    notable_npcs: [{
-        title: String,
-        elements: [String],
-        category: [String]
-    }],
-    unique_items: [{
-        title: String,
-        elements: [String],
-        category: [String]
-    }],
+    monster_type: [ZoneField],
+    notable_npcs: [ZoneField],
+    unique_items: [ZoneField],
     in_or_outdoor: String,
     description: [String],
     dangers: [String],
@@ -61,12 +50,8 @@ var zoneSchema = new mongoose.Schema({
             }
         ]
     },
-    strategy: {
-        title: String,
-        elements: [String],
-        category: [String]
-    },
-    walkthrough: [String]
+    strategy: ZoneField,
+    walkthrough: ZoneField
 }, { collection: "zones" });
 
 var Zone = mongoose.model("zone", zoneSchema);
