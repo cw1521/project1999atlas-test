@@ -74,7 +74,7 @@ app.use("*", function(req, res, next) {
 
 
 
-app.use(favicon("favicon.ico"));
+//app.use(favicon("favicon.ico"));
 
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
