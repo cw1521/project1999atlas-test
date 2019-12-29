@@ -61,6 +61,7 @@
             </span>
             <br><br>
         </p>
+
         <p *ngIf="hasProperty('monster_type')"><span class="title">Types of Monsters<br></span>
             <span *ngFor="let zoneField of zone.monster_type">
                 <span *ngIf="zoneField.title == 'monsters'">
@@ -79,6 +80,7 @@
             </span>
             <br><br>
         </p>
+        
         <p *ngIf="hasProperty('notable_npcs')"><span class="title">Notable NPC's<br></span>
             <span *ngFor="let zoneField of zone.notable_npcs">
                 <span *ngIf="zoneField.title == 'npcs'">
