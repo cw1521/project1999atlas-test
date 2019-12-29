@@ -22,7 +22,7 @@ var zoneSchema = new mongoose.Schema({
         elements: [String],
         category: [String]
     }],
-    in_or_outdoor: [String],
+    in_or_outdoor: String,
     description: [String],
     dangers: [String],
     benefits: [String],

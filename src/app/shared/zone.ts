@@ -12,7 +12,7 @@ export class Zone {
     monster_type: ZoneField[]
     notable_npcs: ZoneField[]
     unique_items: ZoneField[]
-    in_or_outdoor: String[]
+    in_or_outdoor: String
     description: String[]
     dangers: String[]
     benefits: String[]
