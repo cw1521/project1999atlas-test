@@ -6,7 +6,7 @@ var zoneSchema = new mongoose.Schema({
     location: String,
     adj_zones: [String],
     min_player_level: String,
-    monster_levels: [String],
+    monster_level: [String],
     monster_type: [{
         title: String,
         elements: [String],

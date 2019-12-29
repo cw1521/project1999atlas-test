@@ -53,11 +53,11 @@
            
             <br><br>
         </p>
-        <p *ngIf="hasProperty('monster_levels')"><span class="title">Level of Monsters<br></span>
-            <span class="text" *ngFor="let level of zone.monster_levels; let i = index">
+        <p *ngIf="hasProperty('monster_level')"><span class="title">Level of Monsters<br></span>
+            <span class="text" *ngFor="let level of zone.monster_level; let i = index">
 
-                <span *ngIf="i < zone.monster_levels.length -1">{{ level }}, </span>
-                <span *ngIf="i == zone.monster_levels.length -1">{{ level }}</span>
+                <span *ngIf="i < zone.monster_level.length -1">{{ level }}, </span>
+                <span *ngIf="i == zone.monster_level.length -1">{{ level }}</span>
             </span>
             <br><br>
         </p>
