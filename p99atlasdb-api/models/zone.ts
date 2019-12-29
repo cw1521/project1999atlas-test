@@ -8,9 +8,21 @@ var zoneSchema = new mongoose.Schema({
     adj_zones: [String],
     min_player_level: String,
     monster_level: [String],
-    monster_type: [ZoneField],
-    notable_npcs: [ZoneField],
-    unique_items: [ZoneField],
+    monster_type:[{
+        title: String,
+        elements: [String],
+        category: [String]
+    }],
+    notable_npcs: [{
+        title: String,
+        elements: [String],
+        category: [String]
+        }],
+    unique_items: [{
+        title: String,
+        elements: [String],
+        category: [String]
+    }],
     in_or_outdoor: String,
     description: [String],
     dangers: [String],
@@ -50,8 +62,16 @@ var zoneSchema = new mongoose.Schema({
             }
         ]
     },
-    strategy: ZoneField,
-    walkthrough: ZoneField
+    strategy: {
+        title: String,
+        elements: [String],
+        category: [String]
+    },
+    walkthrough: {
+        title: String,
+        elements: [String],
+        category: [String]
+    }
 }, { collection: "zones" });
 
 var Zone = mongoose.model("zone", zoneSchema);
