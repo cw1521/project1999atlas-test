@@ -1,7 +1,6 @@
 //require mongoose module
 var mongoose = require('mongoose');
 
-const MONGODB_URI = 'localhost:27017';
 
 const mongooseOptions = {
     useNewUrlParser: true,
