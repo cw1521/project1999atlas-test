@@ -45,6 +45,25 @@ Zone.getAll = (req: Request, res: Response, next: NextFunction) => {
     });
 }
 
+Zone.getAllNames = (req: Request, res: Response, next: NextFunction) => {
+    Zone.find({}, 'name', (err, zones) => {
+        if (err) {
+            res.status(err.status || 500);
+            res.json({
+            message: err.message,
+            error: err
+            });
+        }
+        else {
+            res.status(200);
+            res.json({
+               message: "Record(s) received.",
+               data: zones
+            });
+        }       
+    });
+}
+
 
 Zone.getMapByName  = (req: Request, res, Response, next: NextFunction) => {
     //console.log(req.params);

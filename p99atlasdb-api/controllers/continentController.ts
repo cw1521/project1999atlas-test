@@ -49,4 +49,23 @@ Continent.getAll = (req, res) => {
     });
 }
 
+Continent.getAllNames = (req, res) => {
+    Continent.find({}, 'name', (err, continents) => {
+        if (err) {
+            res.status(err.status || 500);
+            res.json({
+            message: err.message,
+            error: err
+            });
+        }
+        else {
+            res.status(200);
+            res.json({
+               message: "Record(s) received.",
+               data: continents
+            });
+        }       
+    });
+}
+
 export default Continent;
