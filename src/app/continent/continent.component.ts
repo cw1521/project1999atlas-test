@@ -70,25 +70,24 @@ export class ContinentComponent implements OnInit {
 
 
   parseZones(zones) : void {
-    zones => {
-      this.zones = zones["data"]
-      .filter(zone => zone.continent.toLowerCase() == this.continentName.toLowerCase());
-      
-      // this.zones = this.continentService.getZonesByContinent(this.continentName);
-      if (this.continentName.toLowerCase() == 'planes') {
-        this.planes = this.zones.sort(this.compareNames);
-      }
-      else {
-        this.cities = this.getCities();
-        this.indoorZones = this.getIndoorZones();
-        this.outdoorZones = this.getOutdoorZones();
-        this.cities.sort(this.compareNames);
+    this.zones = zones["data"]
+    .filter(zone => zone.continent.toLowerCase() == this.continentName.toLowerCase());
     
-        this.indoorZones.sort(this.compareNames);
-    
-        this.outdoorZones.sort(this.compareNames);
-      }
+    // this.zones = this.continentService.getZonesByContinent(this.continentName);
+    if (this.continentName.toLowerCase() == 'planes') {
+      this.planes = this.zones.sort(this.compareNames);
     }
+    else {
+      this.cities = this.getCities();
+      this.indoorZones = this.getIndoorZones();
+      this.outdoorZones = this.getOutdoorZones();
+      this.cities.sort(this.compareNames);
+  
+      this.indoorZones.sort(this.compareNames);
+  
+      this.outdoorZones.sort(this.compareNames);
+    }
+  
   }
 
   parseContinent(continent) : void { 

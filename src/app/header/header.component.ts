@@ -46,18 +46,18 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.zoneService.getZones().subscribe((zones ) => {
-      this.zoneArray = zones;
+      this.zoneArray = zones["data"];
 
-      // console.log(this.zoneArray["data"]);
+      console.log(this.zoneArray);
     
      
       
-      this.antonicaZones = this.zoneArray["data"].filter(zone => zone.continent == "antonica");
-      this.faydwerZones = this.zoneArray["data"].filter(zone => zone.continent == "faydwer");
-      this.odusZones = this.zoneArray["data"].filter(zone => zone.continent == "odus");
-      this.kunarkZones = this.zoneArray["data"].filter(zone => zone.continent == "kunark");
-      this.veliousZones = this.zoneArray["data"].filter(zone => zone.continent == "velious")
-      this.planesZones = this.zoneArray["data"].filter(zone => zone.continent == "planes")
+      this.antonicaZones = this.zoneArray.filter(zone => zone.continent == "antonica");
+      this.faydwerZones = this.zoneArray.filter(zone => zone.continent == "faydwer");
+      this.odusZones = this.zoneArray.filter(zone => zone.continent == "odus");
+      this.kunarkZones = this.zoneArray.filter(zone => zone.continent == "kunark");
+      this.veliousZones = this.zoneArray.filter(zone => zone.continent == "velious")
+      this.planesZones = this.zoneArray.filter(zone => zone.continent == "planes")
     
 
 
