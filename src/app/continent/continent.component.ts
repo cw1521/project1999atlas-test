@@ -39,8 +39,8 @@ export class ContinentComponent implements OnInit {
       this.zoneService.getZones()
       .then(zones => {
         this.zones = zones['data'].filter(zone => zone.continent.toLowerCase() == this.continentName.toLowerCase());
+        this.parseZones(this.continentName);
       });
-      this.parseZones(this.continentName);
     }); 
     
 
