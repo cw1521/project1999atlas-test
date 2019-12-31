@@ -29,7 +29,7 @@ export class ZoneService {
   }
 
   getZonesByContinentName(continentName: String) {
-    return this.http.get<Zone[]>(`contintent/${continentName}/zones`).toPromise();
+    return this.http.get<Zone[]>(`zones/contintent/${continentName}`).toPromise();
   }
 
 }
