@@ -46,7 +46,7 @@ Zone.getAll = (req: Request, res: Response, next: NextFunction) => {
 }
 
 Zone.getAllNames = (req: Request, res: Response, next: NextFunction) => {
-    Zone.find({}, 'name zone_type', (err, zones) => {
+    Zone.find({}, 'name zone_type continent', (err, zones) => {
         if (err) {
             res.status(err.status || 500);
             res.json({
@@ -71,7 +71,7 @@ Zone.getMapByName  = (req: Request, res, Response, next: NextFunction) => {
     //console.log(`Zone Name: ${zoneName}\n`);
     Zone.findOne({
         name: {$regex: new RegExp(zoneName, "i")}
-        }, (err, zone) => {
+        }, 'maps', (err, zone) => {
         if (err) {
             res.status(err.status || 500);
             res.json({
