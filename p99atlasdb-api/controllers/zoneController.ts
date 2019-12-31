@@ -94,7 +94,7 @@ Zone.getMapByName  = (req: Request, res, Response, next: NextFunction) => {
 
 Zone.getZonesByContinentName = (req: Request, res: Response, next: NextFunction) => {
     var continentName = `^${String(req.params.continentName).replace('-', ' ')}$`;
-    Zone.find({name: {$regex: new RegExp(continentName, "i")}}, (err, zones) => {
+    Zone.find({continent: {$regex: new RegExp(continentName, "i")}}, (err, zones) => {
         if (err) {
             res.status(err.status || 500);
             res.json({
