@@ -34,12 +34,13 @@ export class ContinentComponent implements OnInit {
       //console.log(params);
       this.continentName = params.get('continentName');
       console.log(`ngOnInit: ${this.continentName}`);
+      
+      this.zoneService.getZones()
+      .subscribe(this.parseZones);
       this.continentService
       .getContinentByName(this.continentName.toLowerCase())
       .subscribe(this.parseContinent);
     });
-    this.zoneService.getZones()
-    .subscribe(this.parseZones);
   }
 
   ngOnDestroy() {
