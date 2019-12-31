@@ -28,15 +28,15 @@ export class ContinentComponent implements OnInit {
     private zoneService: ZoneService,
     private route: ActivatedRoute) { }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.route.paramMap.subscribe(this.initContinent); 
     
-    this.window.scrollTo(0, 0);      
+    //this.window.scrollTo(0, 0);      
     
   }
 
   initContinent(params) {
-    console.log(params);
+    //console.log(params);
     this.continentName = params.get('continentName');
     console.log(`ngOnInit: ${this.continentName}`);
     this.zoneService.getZones()
