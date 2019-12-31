@@ -94,7 +94,8 @@ Zone.getMapByName  = (req: Request, res, Response, next: NextFunction) => {
 
 Zone.getZonesByContinentName = (req: Request, res: Response, next: NextFunction) => {
     var continentName = `^${String(req.params.continentName).replace('-', ' ')}$`;
-    Zone.find({continent: {$regex: new RegExp(continentName, "i")}}, (err, zones) => {
+    Zone.find({continent: {$regex: new RegExp(continentName, "i")}}, 'name zone_type',
+    (err, zones) => {
         if (err) {
             res.status(err.status || 500);
             res.json({
@@ -104,6 +105,7 @@ Zone.getZonesByContinentName = (req: Request, res: Response, next: NextFunction)
         }
         else {
             res.status(200);
+            console.log(zones);
             res.json({
                message: "Record(s) received.",
                data: zones
