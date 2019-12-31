@@ -45,7 +45,7 @@ export class HeaderComponent implements OnInit {
     this.zoneService.getZones().subscribe((zones ) => {
       this.zoneArray = zones["data"];
 
-      console.log(this.zoneArray);
+      //console.log(this.zoneArray);
       
       this.antonicaZones = this.zoneArray.filter(zone => zone.continent == "antonica");
       this.faydwerZones = this.zoneArray.filter(zone => zone.continent == "faydwer");
