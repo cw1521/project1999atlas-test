@@ -49,12 +49,6 @@ export class ContinentComponent implements OnInit {
   
 
 
-  initContinent(params) {
-    //console.log(params);
-    this.continentName = params.get('continentName');
-    console.log(`ngOnInit: ${this.continentName}`);
-  }
-
   ngOnDestroy() {
     delete this.zoneService;
     delete this.continentService;
