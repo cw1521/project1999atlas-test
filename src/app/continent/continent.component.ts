@@ -36,6 +36,8 @@ export class ContinentComponent implements OnInit {
       .getContinentByName(this.continentName.toLowerCase())
       .subscribe(this.parseContinent);
     });
+    this.zoneService.getZones()
+    .subscribe(this.parseZones);
   }
 
   ngOnDestroy() {
@@ -90,8 +92,6 @@ export class ContinentComponent implements OnInit {
     this.continent = continent["data"];
     this.img_link = this.continent.img_link;
     // console.log(this.img_link)
-    this.zoneService.getZones()
-    .subscribe(this.parseZones);
 
   }
 
