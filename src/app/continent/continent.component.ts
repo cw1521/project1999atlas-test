@@ -29,18 +29,18 @@ export class ContinentComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   async ngOnInit() {
-    await this.route.paramMap.toPromise().then(params => {
+    this.route.paramMap.subscribe(params => {
       this.window.scrollTo(0, 0);
-      //console.log(params);
+      console.log(params);
       this.continentName = params.get('continentName');
       console.log(`ngOnInit: ${this.continentName}`);
-    });
-          
-    this.zoneService.getZones()
+      this.zoneService.getZones()
     .then(this.parseZones);
     this.continentService
     .getContinentByName(this.continentName.toLowerCase())
     .subscribe(this.parseContinent);
+    });       
+    
   }
 
   ngOnDestroy() {
