@@ -31,6 +31,7 @@ export class ContinentComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.window.scrollTo(0, 0);
+      console.log(params);
       this.continentName = params.get('continentName');
       this.continentService
       .getContinentByName(this.continentName.toLowerCase())
