@@ -105,7 +105,7 @@ Zone.getZonesByContinentName = (req: Request, res: Response, next: NextFunction)
         }
         else {
             res.status(200);
-            console.log(zones);
+            //console.log(zones);
             res.json({
                message: "Record(s) received.",
                data: zones

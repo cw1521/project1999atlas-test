@@ -42,6 +42,7 @@ export class ContinentComponent implements OnInit {
       this.zoneService.getZonesByContinentName(this.continentName)
       .then(zones => {
         this.zones = zones['data'];
+        console.log(this.zones);
         this.parseZones(this.continentName);
       });
     }); 
