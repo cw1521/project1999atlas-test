@@ -31,14 +31,10 @@ export class ContinentComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.window.scrollTo(0, 0);
-      this.continentName = params.get('continentName')
+      this.continentName = params.get('continentName');
       this.continentService
       .getContinentByName(this.continentName.toLowerCase())
       .subscribe(this.parseContinent);
-
-      this.zoneService.getZones()
-      .subscribe(this.parseZones);
-
     });
   }
 
@@ -94,6 +90,9 @@ export class ContinentComponent implements OnInit {
     this.continent = continent["data"];
     this.img_link = this.continent.img_link;
     // console.log(this.img_link)
+    this.zoneService.getZones()
+    .subscribe(this.parseZones);
+
   }
 
 
