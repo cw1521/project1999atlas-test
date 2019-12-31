@@ -29,12 +29,13 @@ export class ContinentComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   async ngOnInit() {
-    this.route.paramMap.subscribe(this.initContinent);       
+    this.route.paramMap.subscribe(this.initContinent); 
+    
+    this.window.scrollTo(0, 0);      
     
   }
 
   initContinent(params) {
-    this.window.scrollTo(0, 0);
     console.log(params);
     this.continentName = params.get('continentName');
     console.log(`ngOnInit: ${this.continentName}`);
