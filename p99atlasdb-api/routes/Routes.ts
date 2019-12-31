@@ -38,7 +38,7 @@ export class Routes {
         .delete(notSupportedHandler);
 
         router.route("/p99atlasdb-api/continent/:continentName/zones")
-        .get(Zone.getContinentByName)
+        .get(Zone.getZonesByContinentName)
         .post(notSupportedHandler)
         .put(notSupportedHandler)
         .delete(notSupportedHandler);
