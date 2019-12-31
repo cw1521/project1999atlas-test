@@ -58,7 +58,7 @@ export class Routes {
 
     private zonesRoute(router) {
         router.route("/p99atlasdb-api/zones")
-        .get(Zone.getAll)
+        .get(Zone.getAllNames)
         .post(notSupportedHandler)
         .put(notSupportedHandler)
         .delete(notSupportedHandler);
