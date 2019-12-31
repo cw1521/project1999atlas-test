@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.zoneService.getZones()
-    .subscribe(zones  => {
+    .then(zones  => {
       this.zoneArray = zones["data"];
 
       //console.log(this.zoneArray);

@@ -25,7 +25,7 @@ export class ZoneService {
 
 
   getZones() {
-    return this.http.get<Zone[]>("p99atlasdb-api/zones");
+    return this.http.get<Zone[]>("p99atlasdb-api/zones").toPromise();
   }
 
 }

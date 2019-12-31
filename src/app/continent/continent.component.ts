@@ -28,20 +28,22 @@ export class ContinentComponent implements OnInit {
     private zoneService: ZoneService,
     private route: ActivatedRoute) { }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.route.paramMap.subscribe(params => {
+      this.window.scrollTo(0, 0);     
       this.continentName = params.get('continentName');
-      this.zoneService.getZones()
-      .subscribe(zones => {
-        this.zones = zones['data'].filter(zone => zone.continent.toLowerCase() == this.continentName.toLowerCase());
-        this.parseZones(this.continentName);
-      });
       this.continentService
       .getContinentByName(this.continentName.toLowerCase())
-      .subscribe(this.parseContinent);
+      .then(this.parseContinent);
+
+      this.zoneService.getZones()
+      .then(zones => {
+        this.zones = zones['data'].filter(zone => zone.continent.toLowerCase() == this.continentName.toLowerCase());
+      });
+      this.parseZones(this.continentName);
     }); 
     
-    this.window.scrollTo(0, 0);     
+
   
     
   }
@@ -78,7 +80,8 @@ export class ContinentComponent implements OnInit {
 
   parseZones(continentName) : void {
     //console.log(`parseZones: ${this.continentName}`);
-    // this.zones = this.continentService.getZonesByContinent(this.continentName);
+    //this.zones = this.continentService.getZonesByContinent(this.continentName);
+
     if (continentName.toLowerCase() == 'planes') {
       this.planes = this.zones.sort(this.compareNames);
     }
