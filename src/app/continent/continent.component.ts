@@ -39,9 +39,9 @@ export class ContinentComponent implements OnInit {
         this.img_link = this.continent.img_link;
       });
 
-      this.zoneService.getZones()
+      this.zoneService.getZonesByContinentName(this.continentName)
       .then(zones => {
-        this.zones = zones['data'].filter(zone => zone.continent.toLowerCase() == this.continentName.toLowerCase());
+        this.zones = zones['data'];
         this.parseZones(this.continentName);
       });
     }); 

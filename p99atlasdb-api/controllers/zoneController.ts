@@ -92,5 +92,26 @@ Zone.getMapByName  = (req: Request, res, Response, next: NextFunction) => {
     });
 }
 
+Zone.getZonesByContinentName = (req: Request, res: Response, next: NextFunction) => {
+    var continentName = `^${String(req.params.continentName).replace('-', ' ')}$`;
+    Zone.find({name: {$regex: new RegExp(continentName, "i")}}, (err, zones) => {
+        if (err) {
+            res.status(err.status || 500);
+            res.json({
+            message: err.message,
+            error: err
+            });
+        }
+        else {
+            res.status(200);
+            res.json({
+               message: "Record(s) received.",
+               data: zones
+            });
+        }       
+    });
+}
+
+
 
 export default Zone;

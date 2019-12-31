@@ -21,4 +21,5 @@ export class ContinentService {
     return this.http.get<Continent[]>("p99atlasdb-api/continent").toPromise();
   }
 
+
 }
