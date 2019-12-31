@@ -19,13 +19,13 @@ export class ZoneService {
 
 
 
-  async getZoneByName(name: string)  {
-    return this.http.get<Zone>(`p99atlasdb-api/zones/${name}`).toPromise();
+  getZoneByName(name: string)  {
+    return this.http.get<Zone>(`p99atlasdb-api/zones/${name}`);
   }
 
 
-  async getZones() {
-    return this.http.get<Zone[]>("p99atlasdb-api/zones").toPromise();
+  getZones() {
+    return this.http.get<Zone[]>("p99atlasdb-api/zones");
   }
 
 }

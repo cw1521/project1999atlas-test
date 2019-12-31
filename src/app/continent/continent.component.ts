@@ -28,20 +28,24 @@ export class ContinentComponent implements OnInit {
     private zoneService: ZoneService,
     private route: ActivatedRoute) { }
 
-  ngOnInit() {
-    this.route.paramMap.subscribe(this.initContinent); 
+  async ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.continentName = params.get('continentName');
+      this.zoneService.getZones()
+      .subscribe(zones => {
+        this.zones = zones['data'].filter(zone => zone.continent.toLowerCase() == this.continentName.toLowerCase());
+        this.parseZones(this.continentName);
+      });
+      this.continentService
+      .getContinentByName(this.continentName.toLowerCase())
+      .subscribe(this.parseContinent);
+    }); 
     
-    this.window.scrollTo(0, 0);      
+    this.window.scrollTo(0, 0);     
+  
     
   }
 
-ngAfterViewInit() {
-  this.zoneService.getZones()
-  .then(this.parseZones);
-  this.continentService
-  .getContinentByName(this.continentName.toLowerCase())
-  .subscribe(this.parseContinent);
-}
   
 
 
@@ -78,13 +82,10 @@ ngAfterViewInit() {
   }
 
 
-  parseZones(zones) : void {
-    console.log(`parseZones: ${this.continentName}`);
-    this.zones = zones["data"]
-    .filter(zone => zone.continent.toLowerCase() == this.continentName.toLowerCase());
-    
+  parseZones(continentName) : void {
+    //console.log(`parseZones: ${this.continentName}`);
     // this.zones = this.continentService.getZonesByContinent(this.continentName);
-    if (this.continentName.toLowerCase() == 'planes') {
+    if (continentName.toLowerCase() == 'planes') {
       this.planes = this.zones.sort(this.compareNames);
     }
     else {
@@ -101,7 +102,7 @@ ngAfterViewInit() {
   }
 
   parseContinent(continent) : void { 
-    console.log(`parseContinent: ${this.continentName}`);
+    //console.log(`parseContinent: ${this.continentName}`);
     this.continent = continent["data"];
     this.img_link = this.continent.img_link;
     // console.log(this.img_link)
