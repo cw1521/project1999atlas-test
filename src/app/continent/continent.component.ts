@@ -14,14 +14,14 @@ import { ZoneService } from '../services/zone.service';
   styleUrls: ['./continent.component.scss']
 })
 export class ContinentComponent implements OnInit {
-  continentName: string;
+  continentName: String;
   continent: Continent;
   indoorZones: Zone[];
   outdoorZones: Zone[];
   planes: Zone[];
   cities: Zone[];
   zones: Zone[];
-  img_link: string;
+  img_link: String;
 
   constructor(@Inject(WINDOW) private window: any,
     private continentService: ContinentService,
@@ -31,8 +31,9 @@ export class ContinentComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.window.scrollTo(0, 0);
-      console.log(params);
+      //console.log(params);
       this.continentName = params.get('continentName');
+      console.log(`ngOnInit: ${this.continentName}`);
       this.continentService
       .getContinentByName(this.continentName.toLowerCase())
       .subscribe(this.parseContinent);
@@ -69,6 +70,7 @@ export class ContinentComponent implements OnInit {
 
 
   parseZones(zones) : void {
+    console.log(`parseZones: ${this.continentName}`);
     this.zones = zones["data"]
     .filter(zone => zone.continent.toLowerCase() == this.continentName.toLowerCase());
     
