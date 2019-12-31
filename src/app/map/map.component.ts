@@ -26,7 +26,7 @@ export class MapComponent implements OnInit {
       //console.log("here");
       //console.log(params);
       this.zoneService.getZoneByName(params.get("zoneName"))
-      .subscribe(zone => {
+      .then(zone => {
         //console.log(map);
         this.zone = zone["data"];
         //console.log(this.zone);

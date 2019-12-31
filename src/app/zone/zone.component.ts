@@ -36,7 +36,7 @@ export class ZoneComponent implements OnInit {
 
   processZone(params) : void {
     this.zoneService.getZoneByName(params.get('zoneName'))
-    .subscribe(zone => {
+    .then(zone => {
       this.zone = zone["data"];
       this.keys = Object.keys(this.zone);
       //console.log(this.keys);
