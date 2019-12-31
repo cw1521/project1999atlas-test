@@ -34,7 +34,10 @@ export class ContinentComponent implements OnInit {
       this.continentName = params.get('continentName');
       this.continentService
       .getContinentByName(this.continentName.toLowerCase())
-      .then(this.parseContinent);
+      .then(continent => {
+        this.continent = continent["data"];
+        this.img_link = this.continent.img_link;
+      });
 
       this.zoneService.getZones()
       .then(zones => {
@@ -98,13 +101,6 @@ export class ContinentComponent implements OnInit {
   
   }
 
-  parseContinent(continent) : void { 
-    //console.log(`parseContinent: ${this.continentName}`);
-    this.continent = continent["data"];
-    this.img_link = this.continent.img_link;
-    // console.log(this.img_link)
-
-  }
 
 
 }
