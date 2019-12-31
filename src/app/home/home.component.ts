@@ -22,11 +22,11 @@ export class HomeComponent implements OnInit {
     private zoneService: ZoneService) { }
 
   ngOnInit() {
-    this.continentService.getContinents().subscribe((continents) => {
-      this.continents = continents;
-    });
-    this.zoneService.getZones().subscribe((zones) => { this.zones = zones; });
-    //this.processContinents();
+    // this.continentService.getContinents().subscribe((continents) => {
+    //   this.continents = continents;
+    // });
+    // this.zoneService.getZones().subscribe((zones) => { this.zones = zones; });
+    // //this.processContinents();
 
   }
 
