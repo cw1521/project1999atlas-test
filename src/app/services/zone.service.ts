@@ -29,7 +29,7 @@ export class ZoneService {
   }
 
   getZonesByContinentName(continentName: String) {
-    return this.http.get<Zone[]>(`zones/continent/${continentName}`).toPromise();
+    return this.http.get<Zone[]>(`p99atlasdb-api/zones/continent/${continentName}`).toPromise();
   }
 
 }
