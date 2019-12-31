@@ -46,7 +46,7 @@ Zone.getAll = (req: Request, res: Response, next: NextFunction) => {
 }
 
 Zone.getAllNames = (req: Request, res: Response, next: NextFunction) => {
-    Zone.find({}, 'name', (err, zones) => {
+    Zone.find({}, 'name zone_type', (err, zones) => {
         if (err) {
             res.status(err.status || 500);
             res.json({

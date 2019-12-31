@@ -23,64 +23,21 @@ export class ContinentComponent implements OnInit {
   zones: Zone[];
   img_link: string;
 
-  constructor(@Inject(WINDOW) private window: any,  private continentService: ContinentService,
+  constructor(@Inject(WINDOW) private window: any,
+    private continentService: ContinentService,
     private zoneService: ZoneService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-  this.route.paramMap.subscribe(params => {
-    this.window.scrollTo(0, 0);
-    this.continentName = params.get('continentName')
-    this.continentService.getContinentByName(this.continentName.toLowerCase())
-    .subscribe((continent) => { 
-      this.continent = continent["data"];
-      
-      this.img_link = this.continent.img_link;
-      // console.log(this.img_link)
-     });
-    this.zoneService.getZones().subscribe(zones => {
-      this.zones = zones["data"].filter(zone => zone.continent.toLowerCase() == this.continentName);
-      
-    // this.zones = this.continentService.getZonesByContinent(this.continentName);
-    if (this.continentName.toLowerCase() == 'planes') {
-      this.planes = this.zones.sort(function  compare(a: Zone, b: Zone) : number {
-        var x = a.name.toLowerCase();
-        var y = b.name.toLowerCase();
-        if (x < y) { return -1; }
-        if (x > y) { return 1; }
-        return 0;
-      });
-    }
-    else {
-      this.cities = this.getCities();
-      this.indoorZones = this.getIndoorZones();
-      this.outdoorZones = this.getOutdoorZones();
-      this.cities.sort(function  compare(a: Zone, b: Zone) : number {
-        var x = a.name.toLowerCase();
-        var y = b.name.toLowerCase();
-        if (x < y) { return -1; }
-        if (x > y) { return 1; }
-        return 0;
-      });
-  
-      this.indoorZones.sort(function compare(a: Zone, b: Zone) : number {
-        var x = a.name.toLowerCase();
-        var y = b.name.toLowerCase();
-        if (x < y) { return -1; }
-        if (x > y) { return 1; }
-        return 0;
-      });
-  
-      this.outdoorZones.sort(function compare(a: Zone, b: Zone) : number {
-        var x = a.name.toLowerCase();
-        var y = b.name.toLowerCase();
-        if (x < y) { return -1; }
-        if (x > y) { return 1; }
-        return 0;
-      });
-    }
-  });
+    this.route.paramMap.subscribe(params => {
+      this.window.scrollTo(0, 0);
+      this.continentName = params.get('continentName')
+      this.continentService
+      .getContinentByName(this.continentName.toLowerCase())
+      .subscribe(this.parseContinent);
 
+      this.zoneService.getZones()
+      .subscribe(this.parseZones);
 
     });
   }
@@ -103,4 +60,44 @@ export class ContinentComponent implements OnInit {
     return this.zones.filter(zone => zone.zone_type.toLowerCase() == 'city');
   }
 
+  compareNames(a: Zone, b: Zone) : number {
+    var x = a.name.toLowerCase();
+    var y = b.name.toLowerCase();
+    if (x < y) { return -1; }
+    if (x > y) { return 1; }
+    return 0;
+  }
+
+
+  parseZones(zones) : void {
+    zones => {
+      this.zones = zones["data"]
+      .filter(zone => zone.continent.toLowerCase() == this.continentName.toLowerCase());
+      
+      // this.zones = this.continentService.getZonesByContinent(this.continentName);
+      if (this.continentName.toLowerCase() == 'planes') {
+        this.planes = this.zones.sort(this.compareNames);
+      }
+      else {
+        this.cities = this.getCities();
+        this.indoorZones = this.getIndoorZones();
+        this.outdoorZones = this.getOutdoorZones();
+        this.cities.sort(this.compareNames);
+    
+        this.indoorZones.sort(this.compareNames);
+    
+        this.outdoorZones.sort(this.compareNames);
+      }
+    }
+  }
+
+  parseContinent(continent) : void { 
+    this.continent = continent["data"];
+    this.img_link = this.continent.img_link;
+    // console.log(this.img_link)
+  }
+
+
 }
+
+
