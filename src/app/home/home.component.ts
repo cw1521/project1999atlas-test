@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
     this.continentService.getContinents().subscribe((continents) => {
       this.continents = continents;
     });
-    this.zoneService.getZones().then((zones) => { this.zones = zones; });
+    this.zoneService.getZones().subscribe((zones) => { this.zones = zones; });
     //this.processContinents();
 
   }
