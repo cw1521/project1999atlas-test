@@ -47,12 +47,14 @@ export class ZoneComponent implements OnInit {
       // console.log(this.hasProperty('monster_level'));
       // console.log(this.hasProperty('monster_type'));
       // console.log(this.keys);
+      console.log(`walkthrough: ${this.zone.walkthrough}`);
+      console.log(`local color: ${this.zone.local_color}`);
     }); 
   }
   
   hasProperty(prop) : boolean {
     //console.log(this.zone[prop]);
-    if (this.keys.includes(prop) && this.zone[prop] !== null && this.zone[prop] !== []) return true;
+    if (this.keys.includes(prop) && this.zone[prop] !== null && this.zone[prop] !== [] && this.zone[prop] !== undefined) return true;
     else return false;
   }
 
