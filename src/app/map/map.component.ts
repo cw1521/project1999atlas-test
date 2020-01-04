@@ -33,8 +33,8 @@ export class MapComponent implements OnInit {
         this.zone = zone["data"];
         //console.log(this.zone);
         this.map = this.zone.maps.filter(map => map.name.toLowerCase() == params.get("mapName").toLowerCase())[0];
-        this.map.continent = this.map.continent[0].toUpperCase() + this.map.continent.slice(1);
-        let zoneTemp = this.map.zone.split(' ');
+        this.map.continent = this.zone.continent[0].toUpperCase() + this.zone.continent.slice(1);
+        let zoneTemp = this.zone.name.split(' ');
         zoneTemp.forEach(elem => elem = elem[0].toUpperCase() + elem.slice(1));
         this.map.zone = zoneTemp.join(' ');
       });
