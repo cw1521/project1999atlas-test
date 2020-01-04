@@ -42,7 +42,8 @@ export class ZoneComponent implements OnInit {
       //console.log(this.keys);
       this.maps = this.zone.maps;
       this.zone.continent = this.zone.continent[0].toUpperCase()  + this.zone.continent.slice(1);
-      
+      console.log(zone.monster_level);
+      console.log(zone.monster_type);
     }); 
   }
   

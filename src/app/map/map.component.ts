@@ -23,7 +23,6 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     this.map = null;
     this.route.paramMap.subscribe(params => {
-      var temp;
       //console.log("here");
       //console.log(params);
 
@@ -36,7 +35,7 @@ export class MapComponent implements OnInit {
         this.map = this.zone.maps.filter(map => map.name.toLowerCase() == params.get("mapName").toLowerCase())[0];
         this.map.continent = this.map.continent[0].toUpperCase() + this.map.continent.slice(1);
         let zoneTemp = this.map.zone.split(' ');
-        zoneTemp.forEach(elem => elem = elem[0].toUpperCase() + elem[1].slice());
+        zoneTemp.forEach(elem => elem = elem[0].toUpperCase() + elem.slice(1));
         this.map.zone = zoneTemp.join(' ');
       });
 
