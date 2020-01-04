@@ -51,8 +51,8 @@ export class ZoneComponent implements OnInit {
   }
   
   hasProperty(prop) : boolean {
-    console.log(this.zone[prop]);
-    if (prop in this.keys && this.zone[prop] !== null && this.zone[prop] !== []) return true;
+    //console.log(this.zone[prop]);
+    if (this.keys.includes(prop) && this.zone[prop] !== null && this.zone[prop] !== []) return true;
     else return false;
   }
 
