@@ -42,15 +42,16 @@ export class ZoneComponent implements OnInit {
       //console.log(this.keys);
       this.maps = this.zone.maps;
       this.zone.continent = this.zone.continent[0].toUpperCase()  + this.zone.continent.slice(1);
-      console.log(this.zone.monster_level);
-      console.log(this.zone.monster_type);
-      console.log(this.hasProperty('monster_level'));
-      console.log(this.hasProperty('monster_type'));
-      console.log(this.keys);
+      // console.log(this.zone.monster_level);
+      // console.log(this.zone.monster_type);
+      // console.log(this.hasProperty('monster_level'));
+      // console.log(this.hasProperty('monster_type'));
+      // console.log(this.keys);
     }); 
   }
   
   hasProperty(prop) : boolean {
+    console.log(this.zone[prop]);
     if (prop in this.keys && this.zone[prop] !== null && this.zone[prop] !== []) return true;
     else return false;
   }
