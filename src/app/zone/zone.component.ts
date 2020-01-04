@@ -47,8 +47,8 @@ export class ZoneComponent implements OnInit {
       // console.log(this.hasProperty('monster_level'));
       // console.log(this.hasProperty('monster_type'));
       // console.log(this.keys);
-      console.log(`walkthrough: ${this.zone.walkthrough}`);
-      console.log(`local color: ${this.zone.local_color}`);
+      //console.log(`walkthrough: ${this.zone.walkthrough.length}`);
+      //console.log(`local color: ${this.zone.local_color}`);
     }); 
   }
   

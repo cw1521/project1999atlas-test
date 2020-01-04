@@ -240,7 +240,7 @@
             <br><br>
         </p>
 
-        <p *ngIf="hasProperty('local_color')"><span class="title">{{ zone.local_color.title }}<br></span>
+        <p *ngIf="local_color.people.length > 0 && local_color.places.length > 0"><span class="title">{{ zone.local_color.title }}<br></span>
             <span class="title" style="font-size: 100%">People<br></span>
             <span class="text">{{ zone.local_color.people }}<br><br></span>
             <span class="title" style="font-size: 100%">Places<br></span>
@@ -261,7 +261,7 @@
             </span>
             <br><br>
         </p> -->
-        <p *ngIf="hasProperty('strategy')"><span class="title">Strategy<br></span>
+        <p *ngIf="hasProperty('strategy') && zone.strategy.length > 0"><span class="title">Strategy<br></span>
             <span  *ngFor="let strat of zone.strategy">
                 <span *ngIf="strat.title">
                     {{ strat.title }}
@@ -286,7 +286,7 @@
             <br><br>
         </p>
 
-        <p *ngIf="hasProperty('walkthrough')"><span class="title">Walkthrough<br></span>
+        <p *ngIf="hasProperty('walkthrough') && zone.walkthrough.length > 0"><span class="title">Walkthrough<br></span>
             <span  *ngFor="let ele of zone.walkthrough">
                 <span *ngIf="ele.title">
                     {{ ele.title }}

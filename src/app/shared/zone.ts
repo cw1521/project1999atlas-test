@@ -35,7 +35,7 @@ export class Zone {
         places: String[]
     }
     benefits_items: ZoneField
-    strategy: ZoneField
+    strategy: ZoneField[]
     related_quests: ZoneField[]
 
     // {
