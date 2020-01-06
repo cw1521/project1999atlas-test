@@ -14,8 +14,8 @@ export class Database {
       
     public start() {
         
-        //mongoose.connect(process.env.MONGODB_URI, mongooseOptions);
-        mongoose.connect(`mongodb://localhost:27017/p99`, mongooseOptions);
+        mongoose.connect(process.env.MONGODB_URI, mongooseOptions);
+        // mongoose.connect(`mongodb://localhost:27017/p99`, mongooseOptions);
         mongoose.connection.on('connected', function() {
             console.log("Mongoose default connection is open.");
         });
