@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NgtUniversalModule, WINDOW } from '@ng-toolkit/universal';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './header/header.component';

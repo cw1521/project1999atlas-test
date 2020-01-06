@@ -128,8 +128,8 @@
     *ngIf="zone">
     <div fxFlex fxFlexFill fxHide.gt-xs>
         <mat-tab-group dynamicHeight="true">
-            <mat-tab *ngFor="let map of maps" label="{{ map.name }}">
-                <a [routerLink]="['/maps/', zone.name, map.name]">
+            <mat-tab *ngFor="let map of zone.maps" label="{{ map.name }}">
+                <a [routerLink]="['/maps/', zone.name, map.id]">
                     <img class="tab-map" src="{{ map.img_link }}" alt="{{map.name}}">
                 </a>
                 <div *ngIf="map.location_key.length > 0">
@@ -148,9 +148,9 @@
     </div>
     <div fxHide.lt-sm class="tab-map-center">
         <mat-tab-group dynamicHeight="true">
-            <mat-tab *ngFor="let map of maps" label="{{ map.name }}">
+            <mat-tab *ngFor="let map of zone.maps" label="{{ map.name }}">
                 <mat-list-item>
-                    <a [routerLink]="['/maps/', zone.name, map.name]">
+                    <a [routerLink]="['/maps/', zone.name, map.id]">
                         <img class="tab-map-center" src="{{ map.img_link }}" alt="map.name">
                     </a>
                 </mat-list-item>

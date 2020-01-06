@@ -27,26 +27,27 @@ export class MapComponent implements OnInit {
       //console.log(params);
 
 
-      this.zoneService.getZoneByName(params.get("zoneName"))
-      .subscribe(zone => {
-        //console.log(map);
-        this.zone = zone["data"];
-        //console.log(this.zone);
-        this.map = this.zone.maps.filter(map => map.name.toLowerCase() == params.get("mapName").toLowerCase())[0];
-        this.map.continent = this.zone.continent[0].toUpperCase() + this.zone.continent.slice(1);
-        let zoneTemp = this.zone.name.split(' ');
-        zoneTemp.forEach(elem => elem = elem[0].toUpperCase() + elem.slice(1));
-        this.map.zone = zoneTemp.join(' ');
-      });
-
-      // this.mapService.getMapByName(params.get('zoneName'), params.get('mapName'))
-      // .subscribe(map => {
-      //   this.map = map['data'];
-      //   this.map.continent = this.map.continent[0].toUpperCase() + this.map.continent.slice(1);
-      //   let zoneTemp = this.map.zone.split(' ');
-      //   zoneTemp.forEach(elem => elem[0].toUpperCase());
+      // this.zoneService.getZoneByName(params.get("zoneName"))
+      // .subscribe(zone => {
+      //   //console.log(`map id: ${params.get("mapId")}`);
+      //   this.zone = zone["data"];
+      //   //console.log(`Zone: ${this.zone}`);
+      //   this.map = this.zone.maps.filter(map => map.id == params.get("mapId"))[0];
+      //   //console.log(`Map: ${this.map}`);
+      //   this.map.continent = this.zone.continent[0].toUpperCase() + this.zone.continent.slice(1);
+      //   let zoneTemp = this.zone.name.split(' ');
+      //   zoneTemp.forEach(elem => elem = elem[0].toUpperCase() + elem.slice(1));
       //   this.map.zone = zoneTemp.join(' ');
       // });
+
+      this.mapService.getMapById(params.get('zoneName'), params.get('mapId'))
+      .subscribe(map => {
+        this.map = map['data'];
+        this.map.continent = this.map.continent[0].toUpperCase() + this.map.continent.slice(1);
+        let zoneTemp = params.get('zoneName').split(' ');
+        zoneTemp.forEach(elem => elem[0].toUpperCase() + elem.slice(1));
+        this.map.zone = zoneTemp.join(' ');
+      });
 
       this.window.scrollTo(0, 0);
     });
@@ -55,5 +56,6 @@ export class MapComponent implements OnInit {
 
   ngOnDestroy() {
     delete this.zoneService;
+    delete this.mapService;
   }
 }

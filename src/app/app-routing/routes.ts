@@ -9,8 +9,8 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent},
     { path: 'continent/:continentName', component: ContinentComponent},
     { path: 'zones/:zoneName', component: ZoneComponent },
-    { path: 'maps/:zoneName/:mapName', component: MapComponent }
-    //{ path: '', redirectTo: 'home', pathMatch: 'full' }
+    { path: 'maps/:zoneName/:mapId', component: MapComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full' }
     
 ];
 

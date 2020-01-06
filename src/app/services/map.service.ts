@@ -11,8 +11,8 @@ export class MapService {
   constructor(private http: HttpClient) { }
 
 
-  getMapByName(zoneName, mapName) {
-    const url = `p99atlasdb-api/maps/${zoneName}/${mapName}`;
+  getMapById(zoneName, mapId) {
+    const url = `http://localhost:4000/p99atlasdb-api/maps/${zoneName}/${mapId}`;
     return this.http.get(url);
   }
 

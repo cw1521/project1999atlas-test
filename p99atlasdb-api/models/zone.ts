@@ -36,7 +36,9 @@ var zoneSchema = new mongoose.Schema({
     places: [String],
     people: [String],
     maps: [{
+        id: String,
         name: String,
+        continent: String,
         img_link: String,
         location_key: [String],
         comments: [String]

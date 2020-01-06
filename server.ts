@@ -45,6 +45,11 @@ const {AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModule
 
 const database = new Database();
 
+const corsOptions = {
+  origin: '*'
+}
+
+
 database.start();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -53,7 +58,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //app.use("/p99atlasdb-api");
 
-//app.use(cors());
+
+app.use(cors());
 
 
 routes.addRoutes(app);

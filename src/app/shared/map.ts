@@ -1,4 +1,5 @@
 export class Map {
+    id: String
     name: String;
     img_link: String;
     location_key: String[];

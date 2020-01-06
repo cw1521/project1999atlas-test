@@ -39,8 +39,8 @@ export class Routes {
     }
 
     private mapRoute(router) {
-        router.route("/p99atlasdb-api/maps/:zoneName/:mapName")
-        .get(Zone.getMapByName)
+        router.route("/p99atlasdb-api/maps/:zoneName/:mapId")
+        .get(Zone.getMapById)
         .put(notSupportedHandler)
         .post(notSupportedHandler)
         .delete(notSupportedHandler);
