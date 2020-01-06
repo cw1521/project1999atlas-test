@@ -4,10 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Zone } from '../shared/zone';
 
 import {map, toArray, flatMap} from "rxjs/operators";
-
-
-import db from '../../assets/db/zones_db.json';
-
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,32 +15,17 @@ export class ZoneService {
   constructor(private http: HttpClient) {}
 
 
-  
-
-  // getZoneByName(name: string)  {
-  //   return this.http.get<Zone>(`http://localhost:4000/p99atlasdb-api/zones/${name}`);
-  // }
-
-  // getZones() {
-  //   return this.http.get<Zone[]>("http://localhost:4000/p99atlasdb-api/zones").toPromise();
-  // }
-
-  // getZonesByContinentName(continentName: String) {
-  //   return this.http.get<Zone[]>(`http://localhost:4000/p99atlasdb-api/zones/continent/${continentName}`).toPromise();
-  // }
-
-
 
   getZoneByName(name: string)  {
-    return this.http.get<Zone>(`p99atlasdb-api/zones/${name}`);
+    return this.http.get<Zone>(`${environment.baseUrl}/p99atlasdb-api/zones/${name}`);
   }
 
   getZones() {
-    return this.http.get<Zone[]>("p99atlasdb-api/zones").toPromise();
+    return this.http.get<Zone[]>(`${environment.baseUrl}/p99atlasdb-api/zones`).toPromise();
   }
 
   getZonesByContinentName(continentName: String) {
-    return this.http.get<Zone[]>(`p99atlasdb-api/zones/continent/${continentName}`).toPromise();
+    return this.http.get<Zone[]>(`${environment.baseUrl}/p99atlasdb-api/zones/continent/${continentName}`).toPromise();
   }
 
 }

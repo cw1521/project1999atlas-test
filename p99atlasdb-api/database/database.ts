@@ -1,3 +1,5 @@
+import { environment } from '../../src/environments/environment';
+
 //require mongoose module
 var mongoose = require('mongoose');
 
@@ -14,8 +16,7 @@ export class Database {
       
     public start() {
         
-        mongoose.connect(process.env.MONGODB_URI, mongooseOptions);
-        // mongoose.connect(`mongodb://localhost:27017/p99`, mongooseOptions);
+        mongoose.connect(environment.MONGODB_URI, mongooseOptions);
         mongoose.connection.on('connected', function() {
             console.log("Mongoose default connection is open.");
         });
