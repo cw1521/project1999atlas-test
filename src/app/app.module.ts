@@ -30,6 +30,7 @@ import { MaterialModule } from './material.module';
     ZoneComponent,
     MapComponent
   ],
+  
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),    
     HttpClientModule,
@@ -39,6 +40,7 @@ import { MaterialModule } from './material.module';
     NgtUniversalModule,
     BrowserAnimationsModule
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

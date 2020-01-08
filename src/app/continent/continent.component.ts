@@ -1,5 +1,7 @@
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
+
 import { WINDOW } from '@ng-toolkit/universal';
-import { Component, OnInit, Inject } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router'
 
 import { Continent } from '../shared/continent';
@@ -8,12 +10,13 @@ import { Zone } from '../shared/zone';
 import { ZoneService } from '../services/zone.service';
 
 
+
 @Component({
   selector: 'app-continent',
   templateUrl: './continent.component.html',
   styleUrls: ['./continent.component.scss']
 })
-export class ContinentComponent implements OnInit {
+export class ContinentComponent implements OnInit, OnDestroy {
   continentName: String;
   continent: Continent;
   indoorZones: Zone[];
@@ -22,6 +25,11 @@ export class ContinentComponent implements OnInit {
   cities: Zone[];
   zones: Zone[];
   img_link: String;
+  routeSub: any;
+  continentSub: any;
+  zoneSub: any;
+
+
 
   constructor(@Inject(WINDOW) private window: any,
     private continentService: ContinentService,
@@ -29,25 +37,34 @@ export class ContinentComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.window.scrollTo(0, 0);     
-      this.continentName = params.get('continentName');
-      this.continentService
-      .getContinentByName(this.continentName.toLowerCase())
-      .then(continent => {
-        this.continent = continent["data"];
-        this.img_link = this.continent.img_link;
-      });
 
-      this.zoneService.getZonesByContinentName(this.continentName)
-      .then(zones => {
-        this.zones = zones['data'];
-        //console.log(this.zones);
-        this.parseZones(this.continentName);
-      });
-    }); 
+    this.window.scroll(0, 0);
     
+    this.routeSub = this.route.paramMap.subscribe(
+      (params) => {
 
+        this.continentName = params.get('continentName');
+
+        this.continentSub = this.continentService.getContinentByName(this.continentName.toLowerCase())
+        .subscribe(
+          (continent) => {
+            this.continent = continent['data'];
+            this.img_link = this.continent.img_link;       
+          }, (error) => {console.error(error)});
+
+        this.zoneSub = this.zoneService.getZonesByContinentName(this.continentName)
+        .subscribe(
+          (zones) => {
+            this.zones = zones['data'];
+            //console.log(this.zones);
+            this.parseZones(this.continentName);
+          }, (error) => {console.error(error);});
+
+
+
+        }, (error) => {console.error(error);}); 
+    
+    
   
     
   }
@@ -56,8 +73,9 @@ export class ContinentComponent implements OnInit {
 
 
   ngOnDestroy() {
-    delete this.zoneService;
-    delete this.continentService;
+    this.routeSub.unsubscribe();
+    this.zoneSub.unsubscribe();
+    this.continentSub.unsubscribe();
   }
 
 
@@ -83,9 +101,7 @@ export class ContinentComponent implements OnInit {
 
 
   parseZones(continentName) : void {
-    //console.log(`parseZones: ${this.continentName}`);
-    //this.zones = this.continentService.getZonesByContinent(this.continentName);
-
+    
     if (continentName.toLowerCase() == 'planes') {
       this.planes = this.zones.sort(this.compareNames);
     }
@@ -93,10 +109,9 @@ export class ContinentComponent implements OnInit {
       this.cities = this.getCities();
       this.indoorZones = this.getIndoorZones();
       this.outdoorZones = this.getOutdoorZones();
+
       this.cities.sort(this.compareNames);
-  
-      this.indoorZones.sort(this.compareNames);
-  
+      this.indoorZones.sort(this.compareNames);  
       this.outdoorZones.sort(this.compareNames);
     }
   

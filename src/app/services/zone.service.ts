@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Zone } from '../shared/zone';
 
-import {map, toArray, flatMap} from "rxjs/operators";
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -16,16 +14,21 @@ export class ZoneService {
 
 
 
-  getZoneByName(name: string)  {
-    return this.http.get<Zone>(`${environment.baseUrl}/p99atlasdb-api/zones/${name}`);
+  getZoneByName(name: string) {
+    let url = `${environment.baseUrl}/p99atlasdb-api/zones/${name}`;
+    return this.http.get<Zone>(url);
   }
 
   getZones() {
-    return this.http.get<Zone[]>(`${environment.baseUrl}/p99atlasdb-api/zones`).toPromise();
+    let url = `${environment.baseUrl}/p99atlasdb-api/zones`;
+    return this.http.get(url, {responseType: 'json'});
   }
 
   getZonesByContinentName(continentName: String) {
-    return this.http.get<Zone[]>(`${environment.baseUrl}/p99atlasdb-api/zones/continent/${continentName}`).toPromise();
+    let url = `${environment.baseUrl}/p99atlasdb-api/zones/continent/${continentName}`
+    return this.http.get<Zone[]>(url);
   }
 
 }
+
+

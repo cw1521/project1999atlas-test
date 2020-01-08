@@ -4,8 +4,26 @@
 
 
 <div class="home">
-<!--
-<div class="container map-container-xs"
+
+
+
+
+<div class="container map-container"
+  fxFlex="70"
+  fxLayoutAlign="center center"
+  *ngIf="zones">
+  <div fxLayout="column">
+    <a class="title" mat-button routerLink="/continent/Antonica">Antonica</a>
+  </div>
+
+</div>
+
+
+
+
+
+
+<!-- <div class="container map-container-xs"
   fxFlex="70"
   fxFlexAlign="center center"
   fxHide.gt-xs
@@ -34,7 +52,7 @@
 
           <mat-list class="btn-container" >
             <mat-list-item class="btn-container" *ngFor="let city of continent.cities">
-              <a class="btn-container" mat-button [routerLink]="['/zones/', city.id]"> <span class="btn-text">{{ city.name }}</span></a>
+              <a class="btn-container" mat-button [routerLink]="['/zones/', city.name]"> <span class="btn-text">{{ city.name }}</span></a>
             </mat-list-item>
           </mat-list>
         </mat-expansion-panel>
@@ -46,7 +64,7 @@
           </mat-expansion-panel-header>  
           <mat-list class="btn-container" >
             <mat-list-item class="btn-container" *ngFor="let zone of continent.indoorZones">
-              <a class="btn-container" mat-button [routerLink]="['/zones/', zone.id]"> <span class="btn-text">{{ zone.name }}</span></a>
+              <a class="btn-container" mat-button [routerLink]="['/zones/', zone.name]"> <span class="btn-text">{{ zone.name }}</span></a>
             </mat-list-item>
           </mat-list> 
         </mat-expansion-panel>
@@ -57,7 +75,7 @@
           </mat-expansion-panel-header>
           <mat-list class="btn-container" >
             <mat-list-item class="btn-container" *ngFor="let zone of continent.outdoorZones">
-              <a class="btn-container" mat-button [routerLink]="['/zones/', zone.id]"> <span class="btn-text">{{ zone.name }}</span></a>
+              <a class="btn-container" mat-button [routerLink]="['/zones/', zone.name]"> <span class="btn-text">{{ zone.name }}</span></a>
             </mat-list-item>
           </mat-list>  
         </mat-expansion-panel>
@@ -73,15 +91,15 @@
   
             <mat-list class="btn-container" >
               <mat-list-item class="btn-container" *ngFor="let plane of continent.planes">
-                <a class="btn-container" mat-button [routerLink]="['/zones/', plane.id]"> <span class="btn-text">{{ plane.name }}</span></a>
+                <a class="btn-container" mat-button [routerLink]="['/zones/', plane.name]"> <span class="btn-text">{{ plane.name }}</span></a>
               </mat-list-item>
             </mat-list>
           </mat-expansion-panel>
         </mat-accordion>
     </div>
   </div>
-</div> 
--->
+</div>  -->
+
 </div>
 
  

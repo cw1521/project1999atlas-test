@@ -30,12 +30,12 @@ var helmet = require('helmet');
 import {Database} from './p99atlasdb-api/database/database';
 
 
-import {Routes} from './p99atlasdb-api/routes/Routes';
+import router from './p99atlasdb-api/routes/Routes';
 
 // Express server
-const app = express();
+var app = express();
 
-const routes = new Routes();
+// const routes = new Routes();
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');
@@ -50,19 +50,20 @@ const corsOptions = {
 }
 
 
+
+
+
 database.start();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//app.use(helmet());
-
-//app.use("/p99atlasdb-api");
 
 
-app.use(cors());
+// app.use(helmet());
+
+app.use(cors(corsOptions));
 
 
-routes.addRoutes(app);
 
 
 
@@ -70,8 +71,8 @@ app.use("*", function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
   res.header("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept,content-type,application/json");
+  //res.header("Content-Type", "application/json");
   //console.log(req.params);
-  //res.header("Content-type", "application/json");
   if ("OPTIONS" === req.method) { 
     return res.status(200);
   }
@@ -97,6 +98,8 @@ app.set('views', DIST_FOLDER);
 // Example Express Rest API endpoints
 // app.get('/api/**', (req, res) => { });
 
+app.use("/p99atlasdb-api", router);
+
 
 
 // Serve static files from /browser
@@ -107,17 +110,12 @@ app.get('*.*', express.static(DIST_FOLDER, {
 
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {
-  res.render('index', { req });
+  res.render('index', { req, res }, (err, html) => {res.status(html ? 200 : 500).send(html || err.message);});
 });
 
 
 
 
-// app.get('/**/**', function(request, response, next) {
-//     response.statusCode = 200;
-//     response.render("./public/index.html");
-//     response.end();
-// });
 
 
 // Start up the Node server

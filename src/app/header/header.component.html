@@ -10,7 +10,7 @@
 
       <mat-menu class="xs-menu" #menuToggleSm="matMenu">
         <ng-template matMenuContent>
-          <a class="menu" mat-menu-item routerLink="/home" routerLinkActive="active">Home</a>
+          <a class="menu" mat-menu-item routerLink="/" routerLinkActive="active">Home</a>
           <a class="menu" mat-menu-item [matMenuTriggerFor]="antonicaMenuSm">Antonica</a>
           <a class="menu" mat-menu-item [matMenuTriggerFor]="faydwerMenuSm">Faydwer</a>
           <a class="menu" mat-menu-item [matMenuTriggerFor]="odusMenuSm">Odus</a>
@@ -238,7 +238,7 @@
 
     <mat-menu  #menuToggle="matMenu">
       <ng-template matMenuContent>
-        <a class="menu" mat-menu-item routerLink="/home" routerLinkActive="active">Home</a>
+        <a class="menu" mat-menu-item routerLink="/" routerLinkActive="active">Home</a>
         <a class="menu" mat-menu-item [matMenuTriggerFor]="antonicaMenu"
           routerLink="/continent/antonica" routerLinkActive="active">Antonica</a>
         <a class="menu" mat-menu-item [matMenuTriggerFor]="faydwerMenu"
@@ -444,7 +444,7 @@
 
   <div fxFlex="85">
     <mat-toolbar class="header-toolbar">
-      <a mat-button color="accent" routerLink="/home">Home</a>
+      <a mat-button color="accent" routerLink="/">Home</a>
       <a mat-button color="accent" routerLink="/continent/antonica" routerLinkActive="active">Antonica</a>
       <a mat-button color="accent" routerLink="/continent/faydwer" routerLinkActive="active">Faydwer</a>
       <a mat-button color="accent" routerLink="/continent/odus" routerLinkActive="active">Odus</a>

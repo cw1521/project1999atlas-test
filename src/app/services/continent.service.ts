@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,11 +18,13 @@ export class ContinentService {
 
 
   getContinentByName(name: string) {
-    return this.http.get<Continent[]>(`${environment.baseUrl}/p99atlasdb-api/continent/${name}`).toPromise();
+    let url = `${environment.baseUrl}/p99atlasdb-api/continent/${name}`;
+    return this.http.get<Continent>(url);
   } 
 
-  getContinents() {
-    return this.http.get<Continent[]>(`${environment.baseUrl}/p99atlasdb-api/continent`).toPromise();
+  getContinents(){
+    let url = `${environment.baseUrl}/p99atlasdb-api/continent`;
+    return this.http.get<Continent[]>(url);
   }
 
 
