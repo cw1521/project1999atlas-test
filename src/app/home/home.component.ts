@@ -14,12 +14,13 @@ import { ZoneService } from '../services/zone.service';
 
 export class HomeComponent implements OnInit, OnDestroy {
   zones: Zone[];
-  antonicZones: Zone[];
+  antonicaZones: Zone[];
   veliousZones: Zone[];
   faydwerZones: Zone[];
   kunarkZones: Zone[];
   odusZones: Zone[];
   zoneSub: any;
+  continents: Object[];
 
 
 
@@ -27,7 +28,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private zoneService: ZoneService) { }
 
   ngOnInit() {
-
+    this.continents = [];
     this.zoneSub = this.zoneService.getZones()
     .subscribe(
       (zones) => { 
@@ -42,17 +43,28 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   processContinents() {
-    this.antonicZones = this.zones.filter(zone => zone.continent == 'antonica');
-    this.faydwerZones = this.zones.filter(zone => zone.continent == 'faydwer');
-    this.odusZones = this.zones.filter(zone => zone.continent == 'odus');
-    this.kunarkZones = this.zones.filter(zone => zone.continent == 'kunark');
-    this.veliousZones = this.zones.filter(zone => zone.continent == 'velious');
+    let continentNames = ["antonica","faydwer", "odus", "kunark", "velious", "planes"];
+    for (let continentName of continentNames) {
+      let continentZones = this.zones.filter(zone => zone.continent === continentName);
+      continentZones.sort(this.compareNames);
+      let continent = {
+        name: continentName,
+        zones: continentZones
+      }
+      this.continents.push(continent);
+    }
+    // this.antonicaZones = this.zones.filter(zone => zone.continent == 'antonica');
+    // this.faydwerZones = this.zones.filter(zone => zone.continent == 'faydwer');
+    // this.odusZones = this.zones.filter(zone => zone.continent == 'odus');
+    // this.kunarkZones = this.zones.filter(zone => zone.continent == 'kunark');
+    // this.veliousZones = this.zones.filter(zone => zone.continent == 'velious');
     
-    this.antonicZones.sort(this.compareNames);
-    this.faydwerZones.sort(this.compareNames);
-    this.odusZones.sort(this.compareNames);
-    this.kunarkZones.sort(this.compareNames);
-    this.veliousZones.sort(this.compareNames);
+    // this.antonicaZones.sort(this.compareNames);
+    // this.faydwerZones.sort(this.compareNames);
+    // this.odusZones.sort(this.compareNames);
+    // this.kunarkZones.sort(this.compareNames);
+    // this.veliousZones.sort(this.compareNames);
+    
 
   }
 
