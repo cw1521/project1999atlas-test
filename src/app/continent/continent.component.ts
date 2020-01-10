@@ -38,7 +38,7 @@ export class ContinentComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.window.scroll(0, 0);
+
     
     this.routeSub = this.route.paramMap.subscribe(
       (params) => {
@@ -65,7 +65,7 @@ export class ContinentComponent implements OnInit, OnDestroy {
         }, (error) => {console.error(error);}); 
     
     
-  
+        //this.window.scroll(0, 0);
     
   }
 
