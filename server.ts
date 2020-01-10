@@ -31,7 +31,7 @@ import {Database} from './p99atlasdb-api/database/database';
 
 
 import router from './p99atlasdb-api/routes/Routes';
-import { environment } from 'src/environments/environment';
+import { environment } from './src/environments/environment';
 
 // Express server
 var app = express();
