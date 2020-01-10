@@ -29,7 +29,7 @@ export class MapComponent implements OnInit, OnDestroy {
     
   ngOnInit() {
     this.map = null;
-    this.window.scroll(0, 0);
+    // this.window.scroll(0, 0);
     this.routeSub = this.route.paramMap.subscribe(params => {
 
       this.mapSub = this.mapService.getMapById(params.get('zoneName'), params.get('mapId'))

@@ -32,7 +32,7 @@ export class ZoneComponent implements OnInit {
 
   ngOnInit() {
     
-    this.window.scroll(0, 0);
+    //this.window.scroll(0, 0);
     this.routeSub = this.route.paramMap.subscribe(
       (params) => {
         this.processZone(params);

@@ -31,6 +31,7 @@ import {Database} from './p99atlasdb-api/database/database';
 
 
 import router from './p99atlasdb-api/routes/Routes';
+import { environment } from 'src/environments/environment';
 
 // Express server
 var app = express();
@@ -110,10 +111,17 @@ app.get('*.*', express.static(DIST_FOLDER, {
 
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {
-  res.render('index', { req, res }, (err, html) => {res.status(html ? 200 : 500).send(html || err.message);});
+  res.render('index', { req, res });
 });
 
 
+app.use(redirectUnmatched);
+
+
+
+function redirectUnmatched(req, res) {
+  res.redirect(environment.baseUrl);
+}
 
 
 
