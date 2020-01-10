@@ -10,7 +10,6 @@ const mongooseOptions = {
     useUnifiedTopology: true
   }
 
-//export this function and imported by server.js
 export class Database {
 
       
