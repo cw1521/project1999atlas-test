@@ -172,6 +172,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "p99atlas"
+    }
+  },
+  "defaultProject": "p99atlas",
+  "cli": {
+    "analytics": false
+  }
 }
