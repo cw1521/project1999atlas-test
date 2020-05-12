@@ -18,12 +18,12 @@ export class ContinentService {
 
 
   getContinentByName(name: string) {
-    let url = `${environment.baseUrl}/p99atlasdb-api/continent/${name}`;
+    let url = `${environment.baseUrl}/api/continent/${name}`;
     return this.http.get<Continent>(url);
   } 
 
   getContinents(){
-    let url = `${environment.baseUrl}/p99atlasdb-api/continent`;
+    let url = `${environment.baseUrl}/api/continent`;
     return this.http.get<Continent[]>(url);
   }
 

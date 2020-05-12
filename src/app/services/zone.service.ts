@@ -15,17 +15,17 @@ export class ZoneService {
 
 
   getZoneByName(name: string) {
-    let url = `${environment.baseUrl}/p99atlasdb-api/zones/${name}`;
+    let url = `${environment.baseUrl}/api/zones/${name}`;
     return this.http.get<Zone>(url);
   }
 
   getZones() {
-    let url = `${environment.baseUrl}/p99atlasdb-api/zones`;
+    let url = `${environment.baseUrl}/api/zones`;
     return this.http.get(url, {responseType: 'json'});
   }
 
   getZonesByContinentName(continentName: String) {
-    let url = `${environment.baseUrl}/p99atlasdb-api/zones/continent/${continentName}`
+    let url = `${environment.baseUrl}/api/zones/continent/${continentName}`
     return this.http.get<Zone[]>(url);
   }
 

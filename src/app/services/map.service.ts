@@ -15,7 +15,7 @@ export class MapService {
 
   
   getMapById(zoneName, mapId){
-    let url = `${environment.baseUrl}/p99atlasdb-api/maps/${zoneName}/${mapId}`;
+    let url = `${environment.baseUrl}/api/maps/${zoneName}/${mapId}`;
     return this.http.get(url, {responseType: 'json'});
   }
 
