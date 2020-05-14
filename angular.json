@@ -149,12 +149,14 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
             "browserTarget": "p99atlas:build",
-            "serverTarget": "p99atlas:server"
+            "serverTarget": "p99atlas:server",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
               "browserTarget": "p99atlas:build:production",
-              "serverTarget": "p99atlas:server:production"
+              "serverTarget": "p99atlas:server:production",
+              "proxyConfig": "src/proxy.conf.json"
             }
           }
         },
