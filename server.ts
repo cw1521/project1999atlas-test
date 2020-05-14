@@ -47,17 +47,17 @@ function run() {
   // Start up the Node server
   const server = app();
 
-  server.use("*", function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept,content-type,application/json");
-    //res.header("Content-Type", "application/json");
-    //console.log(req.params);
-    if ("OPTIONS" === req.method) { 
-      return res.status(200);
-    }
-    next();
-  });
+  // server.use("*", function(req, res, next) {
+  //   res.header("Access-Control-Allow-Origin", "*");
+  //   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+  //   res.header("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept,content-type,application/json");
+  //   //res.header("Content-Type", "application/json");
+  //   //console.log(req.params);
+  //   if ("OPTIONS" === req.method) { 
+  //     return res.status(200);
+  //   }
+  //   next();
+  // });
   
 
   server.listen(port, () => {

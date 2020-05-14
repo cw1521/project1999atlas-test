@@ -21,7 +21,7 @@ export class ZoneService {
 
   getZones() {
     let url = `${environment.baseUrl}/api/zones`;
-    return this.http.get(url);
+    return this.http.get<Zone[]>(url);
   }
 
   getZonesByContinentName(continentName: String) {
