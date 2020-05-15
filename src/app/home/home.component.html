@@ -157,9 +157,9 @@ class="container">
 <mat-card-footer>
 
   <div class="zone-container"
-  fxHide.lt-md
-    fxFlex="100"
-    *ngIf="continent.name !== 'planes'">
+  fxHide.lt-lg
+  fxFlex="100"
+  *ngIf="continent.name !== 'planes'">
     <br>
     <p class="category">Outdoor Zones</p>
     <br>
@@ -180,36 +180,52 @@ class="container">
   fxHide.gt-md
   fxHide.lt-md
   *ngIf="continent.name !== 'planes'">
-  <br>
-  <p class="category">Outdoor Zones</p>
-  <br>
-  
-  <mat-grid-list cols="2" rowHeight="5vh">
-    <div *ngFor="let zone of continent.zones">
-      <mat-grid-tile *ngIf="zone.zone_type.toLowerCase() === 'outdoor'">
-        <a class="text" mat-button [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
-      </mat-grid-tile>
-    </div>
-  </mat-grid-list>
-</div>
-
-
-
-
-<div
-fxHide.gt-sm
-fxFlex="100"
-*ngIf="continent.name !== 'planes'">
-<p class="category-xs">Outdoor Zones</p>
-
-<mat-grid-list cols="1" rowHeight="5vh">
-  <div *ngFor="let zone of continent.zones">
-    <mat-grid-tile *ngIf="zone.zone_type.toLowerCase() === 'outdoor'">
-      <a class="text" mat-button [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
-    </mat-grid-tile>
+    <br>
+    <p class="category">Outdoor Zones</p>
+    <br>
+    
+    <mat-grid-list cols="3" rowHeight="5vh">
+      <div *ngFor="let zone of continent.zones">
+        <mat-grid-tile *ngIf="zone.zone_type.toLowerCase() === 'outdoor'">
+          <a class="text" mat-button [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
   </div>
-</mat-grid-list>
-</div>
+
+
+
+
+  <div
+  fxHide.gt-sm
+  fxHide.lt-sm
+  fxFlex="100"
+  *ngIf="continent.name !== 'planes'">
+    <p class="category-xs">Outdoor Zones</p>
+
+    <mat-grid-list cols="2" rowHeight="5vh">
+      <div *ngFor="let zone of continent.zones">
+        <mat-grid-tile *ngIf="zone.zone_type.toLowerCase() === 'outdoor'">
+          <a class="text" mat-button [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+  </div>
+
+  <div
+  fxHide.gt-xs
+  fxFlex="100"
+  *ngIf="continent.name !== 'planes'">
+    <p class="category-xs">Outdoor Zones</p>
+
+    <mat-grid-list cols="1" rowHeight="5vh">
+      <div *ngFor="let zone of continent.zones">
+        <mat-grid-tile *ngIf="zone.zone_type.toLowerCase() === 'outdoor'">
+          <a class="text" mat-button [routerLink]="['/zones/', zone.name]">{{ zone.name }}</a>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+  </div>
 </mat-card-footer>
 
 
