@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   MONGODB_URI: `mongodb://localhost:27017/p99`,
-  baseUrl: 'https://localhost:3500'
+  baseUrl: 'http://localhost:3500'
 };
 
 /*
