@@ -3,6 +3,7 @@ import { HomeComponent } from '../home/home.component';
 import { ContinentComponent } from '../continent/continent.component';
 import { ZoneComponent } from '../zone/zone.component';
 import { MapComponent } from '../map/map.component';
+import { ItemComponent } from '../item/item.component';
 
 
 // export const routes: Routes = [
@@ -38,8 +39,11 @@ export const routes: Routes = [
     {
         path: 'maps/:zoneName/:mapId', component: MapComponent
     },
+    {
+        path: 'items/:itemName', component: ItemComponent
+    }
     // {
-    //     //path: '', redirectTo: '', pathMatch: 'full'
+    //     path: '', redirectTo: '', pathMatch: 'full'
     // }
     
 ];

@@ -103,14 +103,14 @@
             <span *ngFor="let zoneField of zone.unique_items">
                 <span *ngIf="zoneField.title == 'items'">
                     <span class="text" *ngFor="let item of zoneField.elements; let i=index">
-                        <span *ngIf="i < zoneField.elements.length -1">{{ item }}, </span>
-                        <span *ngIf="i == zoneField.elements.length -1">{{ item }}</span>
+                        <span *ngIf="i < zoneField.elements.length -1"><a class="link" [routerLink]="['/items/', item]">{{ item }}</a>, </span>
+                        <span *ngIf="i == zoneField.elements.length -1"><a class="link" [routerLink]="['/items/', item]">{{ item }}</a></span>
                     </span>
                 </span>
                 <span *ngIf="zoneField.title != 'items'">{{ zoneField.title }}: 
                     <span class="text" *ngFor="let item of zoneField.elements; let i=index">
-                        <span *ngIf="i < zoneField.elements.length -1">{{ item }}, </span>
-                        <span *ngIf="i == zoneField.elements.length -1">{{ item }}</span>
+                        <span *ngIf="i < zoneField.elements.length -1"><a class="link" [routerLink]="['/items/', item]">{{ item }}</a>, </span>
+                        <span *ngIf="i == zoneField.elements.length -1"><a class="link" [routerLink]="['/items/', item]">{{ item }}</a></span>
                     </span>
                 </span>
                 <br>

@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from './material.module';
+import { ItemComponent } from './item/item.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MaterialModule } from './material.module';
     ContinentComponent,
     HomeComponent,
     ZoneComponent,
-    MapComponent
+    MapComponent,
+    ItemComponent
   ],
   
   imports: [
