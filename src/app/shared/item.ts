@@ -40,7 +40,7 @@ export class Item {
     capacity: String
     wt_reduction: String
     size_capacity: String
-    String: String
+    stringed: String
     skill_mod: String
     hp_regen: String
     temporary: Boolean

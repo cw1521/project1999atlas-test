@@ -1,3 +1,46 @@
 .item-container {
-    background-size: 95%;
+    padding: 1vh 5vh 1vh 5vh;
+}
+
+.title {
+    padding: 10vh 5vh 0vh 5vh;
+}
+
+.item-stats-container {
+    background-color: black;
+    padding: 1vh 1vh 1vh 1vh;
+    color: floralwhite;
+}
+
+.text {
+    margin: 0vh 0vh 0vh 0vh;
+    padding: 0vh 0vh 0.5vh 0vh;
+    font-size: 85%;
+    font-family: "Quattrocento Sans", sans-serif;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.text-name {
+    font-size: 80%;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.stats-container {
+    padding: 1vh 1vh 0vh 1vh;
+    min-height: 20vh;
+}
+
+.align-icon {
+    text-align: right;
+    vertical-align: text-top;
 }

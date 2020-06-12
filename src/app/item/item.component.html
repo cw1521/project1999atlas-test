@@ -3,5 +3,176 @@
     class="dark-background item-container"
     *ngIf="item">
     <h1 class="title">{{item.name}}</h1>
+</div>
+
+
+
+<div fxFlexLayout="column"
+    fxLayoutAlign="center center"
+    class="item-container dark-background"
+    *ngIf="item">
+
+    <div fxFlex="33"
+    fxHide.lt-xl
+    class="item-stats-container">
+        <p class="text text-name align-center">{{item.name}}</p>
+        <div fxFlexLayout="row"
+        fxLayoutAlign="start start"
+        class="dark-background stats-container">     
+            <div fxFlex="90">
+                <p *ngIf="itemType" class="text align-left">{{itemType}}</p>
+                <p *ngIf="itemFood" class="text align-left">{{itemFood}}</p>
+                <p *ngIf="itemSlot" class="text align-left">{{itemSlot}}</p>
+                <p *ngIf="itemSkill" class="text align-left">{{itemSkill}}</p>
+                <p *ngIf="itemInstrumentType" class="text align-left">{{itemInstrumentType}}</p>
+                <p *ngIf="itemDmg" class="text align-left">{{itemDmg}}</p>
+                <p *ngIf="itemStats" class="text align-left">{{itemStats}}</p>
+                <p *ngIf="itemSaves" class="text align-left">{{itemSaves}}</p>
+                <p *ngIf="itemHaste" class="text align-left">{{itemHaste}}</p>
+                <p *ngIf="itemEffect" class="text align-left">{{itemEffect}}</p>
+                <p *ngIf="itemWt" class="text align-left">{{itemWt}}</p>
+                <p *ngIf="itemCapacity" class="text align-left">{{itemCapacity}}</p>
+                <p *ngIf="itemClass" class="text align-left">{{itemClass}}</p>
+                <p *ngIf="itemRace" class="text align-left">{{itemRace}}</p>
+            </div>
+            <div fxFlex="10">
+                <p class="align-right">
+                    <img src="assets/images/items/item_{{item.lucy_img_id}}.png">
+                </p>
+            </div>  
+        </div>
+    </div>
+
+    <div fxFlex="37"
+    fxHide.lt-lg
+    fxHide.gt-lg
+    class="item-stats-container">
+        <p class="text text-name align-center">{{item.name}}</p>
+        <div fxFlexLayout="row"
+        fxLayoutAlign="start start"
+        class="dark-background stats-container">     
+            <div fxFlex="90">
+                <p *ngIf="itemType" class="text align-left">{{itemType}}</p>
+                <p *ngIf="itemFood" class="text align-left">{{itemFood}}</p>
+                <p *ngIf="itemSlot" class="text align-left">{{itemSlot}}</p>
+                <p *ngIf="itemSkill" class="text align-left">{{itemSkill}}</p>
+                <p *ngIf="itemInstrumentType" class="text align-left">{{itemInstrumentType}}</p>
+                <p *ngIf="itemDmg" class="text align-left">{{itemDmg}}</p>
+                <p *ngIf="itemStats" class="text align-left">{{itemStats}}</p>
+                <p *ngIf="itemSaves" class="text align-left">{{itemSaves}}</p>
+                <p *ngIf="itemHaste" class="text align-left">{{itemHaste}}</p>
+                <p *ngIf="itemEffect" class="text align-left">{{itemEffect}}</p>
+                <p *ngIf="itemWt" class="text align-left">{{itemWt}}</p>
+                <p *ngIf="itemCapacity" class="text align-left">{{itemCapacity}}</p>
+                <p *ngIf="itemClass" class="text align-left">{{itemClass}}</p>
+                <p *ngIf="itemRace" class="text align-left">{{itemRace}}</p>
+            </div>
+            <div fxFlex="10">
+                <p class="align-right">
+                    <img src="assets/images/items/item_{{item.lucy_img_id}}.png">
+                </p>
+            </div>  
+        </div>
+    </div>
+
+    <div fxFlex="50"
+    fxHide.lt-md
+    fxHide.gt-md
+    class="item-stats-container">
+        <p class="text text-name align-center">{{item.name}}</p>
+        <div fxFlexLayout="row"
+        fxLayoutAlign="start start"
+        class="dark-background stats-container">     
+            <div fxFlex="90">
+                <p *ngIf="itemType" class="text align-left">{{itemType}}</p>
+                <p *ngIf="itemFood" class="text align-left">{{itemFood}}</p>
+                <p *ngIf="itemSlot" class="text align-left">{{itemSlot}}</p>
+                <p *ngIf="itemSkill" class="text align-left">{{itemSkill}}</p>
+                <p *ngIf="itemInstrumentType" class="text align-left">{{itemInstrumentType}}</p>
+                <p *ngIf="itemDmg" class="text align-left">{{itemDmg}}</p>
+                <p *ngIf="itemStats" class="text align-left">{{itemStats}}</p>
+                <p *ngIf="itemSaves" class="text align-left">{{itemSaves}}</p>
+                <p *ngIf="itemHaste" class="text align-left">{{itemHaste}}</p>
+                <p *ngIf="itemEffect" class="text align-left">{{itemEffect}}</p>
+                <p *ngIf="itemWt" class="text align-left">{{itemWt}}</p>
+                <p *ngIf="itemCapacity" class="text align-left">{{itemCapacity}}</p>
+                <p *ngIf="itemClass" class="text align-left">{{itemClass}}</p>
+                <p *ngIf="itemRace" class="text align-left">{{itemRace}}</p>
+            </div>
+            <div fxFlex="10">
+                <p class="align-right">
+                    <img src="assets/images/items/item_{{item.lucy_img_id}}.png">
+                </p>
+            </div>  
+        </div>
+    </div>
+
+    <div fxFlex="70"
+    fxHide.lt-sm
+    fxHide.gt-sm
+    class="item-stats-container">
+        <p class="text text-name align-center">{{item.name}}</p>
+        <div fxFlexLayout="row"
+        fxLayoutAlign="start start"
+        class="dark-background stats-container">     
+            <div fxFlex="90">
+                <p *ngIf="itemType" class="text align-left">{{itemType}}</p>
+                <p *ngIf="itemFood" class="text align-left">{{itemFood}}</p>
+                <p *ngIf="itemSlot" class="text align-left">{{itemSlot}}</p>
+                <p *ngIf="itemSkill" class="text align-left">{{itemSkill}}</p>
+                <p *ngIf="itemInstrumentType" class="text align-left">{{itemInstrumentType}}</p>
+                <p *ngIf="itemDmg" class="text align-left">{{itemDmg}}</p>
+                <p *ngIf="itemStats" class="text align-left">{{itemStats}}</p>
+                <p *ngIf="itemSaves" class="text align-left">{{itemSaves}}</p>
+                <p *ngIf="itemHaste" class="text align-left">{{itemHaste}}</p>
+                <p *ngIf="itemEffect" class="text align-left">{{itemEffect}}</p>
+                <p *ngIf="itemWt" class="text align-left">{{itemWt}}</p>
+                <p *ngIf="itemCapacity" class="text align-left">{{itemCapacity}}</p>
+                <p *ngIf="itemClass" class="text align-left">{{itemClass}}</p>
+                <p *ngIf="itemRace" class="text align-left">{{itemRace}}</p>
+            </div>
+            <div fxFlex="10">
+                <p class="align-right">
+                    <img src="assets/images/items/item_{{item.lucy_img_id}}.png">
+                </p>
+            </div>  
+        </div>
+    </div>
+
+
+    <div fxFlex="100"
+    fxHide.gt-xs
+    class="item-stats-container">
+        <p class="text text-name align-center">{{item.name}}</p>
+        <div fxFlexLayout="row"
+        fxLayoutAlign="start start"
+        class="dark-background stats-container">     
+            <div fxFlex="82">
+                <p *ngIf="itemType" class="text align-left">{{itemType}}</p>
+                <p *ngIf="itemFood" class="text align-left">{{itemFood}}</p>
+                <p *ngIf="itemSlot" class="text align-left">{{itemSlot}}</p>
+                <p *ngIf="itemSkill" class="text align-left">{{itemSkill}}</p>
+                <p *ngIf="itemInstrumentType" class="text align-left">{{itemInstrumentType}}</p>
+                <p *ngIf="itemDmg" class="text align-left">{{itemDmg}}</p>
+                <p *ngIf="itemStats" class="text align-left">{{itemStats}}</p>
+                <p *ngIf="itemSaves" class="text align-left">{{itemSaves}}</p>
+                <p *ngIf="itemHaste" class="text align-left">{{itemHaste}}</p>
+                <p *ngIf="itemEffect" class="text align-left">{{itemEffect}}</p>
+                <p *ngIf="itemWt" class="text align-left">{{itemWt}}</p>
+                <p *ngIf="itemCapacity" class="text align-left">{{itemCapacity}}</p>
+                <p *ngIf="itemClass" class="text align-left">{{itemClass}}</p>
+                <p *ngIf="itemRace" class="text align-left">{{itemRace}}</p>
+            </div>
+            <div fxFlex="10">
+                <p class="align-right">
+                    <img src="assets/images/items/item_{{item.lucy_img_id}}.png">
+                </p>
+            </div>  
+        </div>
+    </div>
+
+</div>
+
+<div>
 
 </div>
