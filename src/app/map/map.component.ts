@@ -36,20 +36,18 @@ export class MapComponent implements OnInit, OnDestroy {
       .subscribe(
         (map) => {
 
-          //console.log(map);
-
           this.map = map['data'];
           this.map.continent = this.map.continent[0].toUpperCase() + this.map.continent.slice(1);
           let zoneTemp = params.get('zoneName').split(' ');
           zoneTemp.forEach(elem => elem[0].toUpperCase() + elem.slice(1));
           this.map.zone = zoneTemp.join(' ');
-        },
-        (error) => {console.error(error)});
+        });
+        // (error) => {console.error(error)});
 
 
 
-      },
-      (error) => {console.error(error)});
+      });
+      // (error) => {console.error(error)});
 
 
 

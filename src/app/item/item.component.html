@@ -17,8 +17,8 @@
     class="item-stats-container">
         <p class="text text-name align-center">{{item.name}}</p>
         <div fxFlexLayout="row"
-        fxLayoutAlign="start start"
-        class="dark-background stats-container">     
+            fxLayoutAlign="start start"
+            class="dark-background stats-container">     
             <div fxFlex="90">
                 <p *ngIf="itemType" class="text align-left">{{itemType}}</p>
                 <p *ngIf="itemFood" class="text align-left">{{itemFood}}</p>
@@ -49,8 +49,8 @@
     class="item-stats-container">
         <p class="text text-name align-center">{{item.name}}</p>
         <div fxFlexLayout="row"
-        fxLayoutAlign="start start"
-        class="dark-background stats-container">     
+            fxLayoutAlign="start start"
+            class="dark-background stats-container">     
             <div fxFlex="90">
                 <p *ngIf="itemType" class="text align-left">{{itemType}}</p>
                 <p *ngIf="itemFood" class="text align-left">{{itemFood}}</p>
@@ -76,13 +76,13 @@
     </div>
 
     <div fxFlex="50"
-    fxHide.lt-md
-    fxHide.gt-md
-    class="item-stats-container">
+        fxHide.lt-md
+        fxHide.gt-md
+        class="item-stats-container">
         <p class="text text-name align-center">{{item.name}}</p>
         <div fxFlexLayout="row"
-        fxLayoutAlign="start start"
-        class="dark-background stats-container">     
+            fxLayoutAlign="start start"
+            class="dark-background stats-container">     
             <div fxFlex="90">
                 <p *ngIf="itemType" class="text align-left">{{itemType}}</p>
                 <p *ngIf="itemFood" class="text align-left">{{itemFood}}</p>
@@ -108,13 +108,13 @@
     </div>
 
     <div fxFlex="70"
-    fxHide.lt-sm
-    fxHide.gt-sm
-    class="item-stats-container">
+        fxHide.lt-sm
+        fxHide.gt-sm
+        class="item-stats-container">
         <p class="text text-name align-center">{{item.name}}</p>
         <div fxFlexLayout="row"
-        fxLayoutAlign="start start"
-        class="dark-background stats-container">     
+            fxLayoutAlign="start start"
+            class="dark-background stats-container">     
             <div fxFlex="90">
                 <p *ngIf="itemType" class="text align-left">{{itemType}}</p>
                 <p *ngIf="itemFood" class="text align-left">{{itemFood}}</p>
@@ -139,14 +139,13 @@
         </div>
     </div>
 
-
     <div fxFlex="100"
-    fxHide.gt-xs
-    class="item-stats-container">
+        fxHide.gt-xs
+        class="item-stats-container">
         <p class="text text-name align-center">{{item.name}}</p>
         <div fxFlexLayout="row"
-        fxLayoutAlign="start start"
-        class="dark-background stats-container">     
+            fxLayoutAlign="start start"
+            class="dark-background stats-container">     
             <div fxFlex="82">
                 <p *ngIf="itemType" class="text align-left">{{itemType}}</p>
                 <p *ngIf="itemFood" class="text align-left">{{itemFood}}</p>
@@ -171,8 +170,71 @@
         </div>
     </div>
 
+
 </div>
 
-<div>
+<div fxFlexLayout="column"
+    fxLayoutAlign="center center"
+    class="dark-background"
+    *ngIf="itemDropsFrom">
+
+    <div fxFlex="33"
+        fxHide.gt-xl
+        fxHide.lt-xl
+        class="drops-from-container-sm-xl">
+        <div *ngFor="let elem of itemDropsFrom">
+            <a class="link" [routerLink]="['/zones/', elem.zone]">{{elem.zone}}</a>
+            <div *ngFor="let monster of elem.monsters">
+                <p *ngIf="monster" class="text align-left">{{monster}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div fxFlex="37"
+        fxHide.gt-lg
+        fxHide.lt-lg
+        class="drops-from-container-sm-xl">
+        <div *ngFor="let elem of itemDropsFrom">
+            <a class="link" [routerLink]="['/zones/', elem.zone]">{{elem.zone}}</a>
+            <div *ngFor="let monster of elem.monsters">
+                <p *ngIf="monster" class="text align-left">{{monster}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div fxFlex="50"
+        fxHide.gt-md
+        fxHide.lt-md
+        class="drops-from-container-sm-xl">
+        <div *ngFor="let elem of itemDropsFrom">
+            <a class="link" [routerLink]="['/zones/', elem.zone]">{{elem.zone}}</a>
+            <div *ngFor="let monster of elem.monsters">
+                <p *ngIf="monster" class="text align-left">{{monster}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div fxFlex="70"
+        fxHide.gt-sm
+        fxHide.lt-sm
+        class="drops-from-container-sm-xl">
+        <div *ngFor="let elem of itemDropsFrom">
+            <a class="link" [routerLink]="['/zones/', elem.zone]">{{elem.zone}}</a>
+            <div *ngFor="let monster of elem.monsters">
+                <p *ngIf="monster" class="text align-left">{{monster}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div fxFlex="100"
+        fxHide.gt-xs
+        class="drops-from-container-xs">
+        <div *ngFor="let elem of itemDropsFrom">
+            <a class="link" [routerLink]="['/zones/', elem.zone]">{{elem.zone}}</a>
+            <div *ngFor="let monster of elem.monsters">
+                <p *ngIf="monster" class="text align-left">{{monster}}</p>
+            </div>
+        </div>
+    </div>
 
 </div>

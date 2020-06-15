@@ -103,14 +103,24 @@
             <span *ngFor="let zoneField of zone.unique_items">
                 <span *ngIf="zoneField.title == 'items'">
                     <span class="text" *ngFor="let item of zoneField.elements; let i=index">
-                        <span *ngIf="i < zoneField.elements.length -1"><a class="link" [routerLink]="['/items/', item]">{{ item }}</a>, </span>
-                        <span *ngIf="i == zoneField.elements.length -1"><a class="link" [routerLink]="['/items/', item]">{{ item }}</a></span>
+                        <span *ngIf="i < zoneField.elements.length -1">
+                            <a *ngIf="item != 'See Below' && item != 'todo'" class="link" [routerLink]="['/items/', item]">{{ item }}</a>, 
+                        </span>
+                        <span *ngIf="i == zoneField.elements.length -1">
+                            <a *ngIf="item != 'See Below' && item != 'todo'" class="link" [routerLink]="['/items/', item]">{{ item }}</a>
+                            <span *ngIf="item == 'See Below' || item == 'todo'">{{item}}</span>
+                        </span>
                     </span>
                 </span>
                 <span *ngIf="zoneField.title != 'items'">{{ zoneField.title }}: 
                     <span class="text" *ngFor="let item of zoneField.elements; let i=index">
-                        <span *ngIf="i < zoneField.elements.length -1"><a class="link" [routerLink]="['/items/', item]">{{ item }}</a>, </span>
-                        <span *ngIf="i == zoneField.elements.length -1"><a class="link" [routerLink]="['/items/', item]">{{ item }}</a></span>
+                        <span *ngIf="i < zoneField.elements.length -1">
+                            <a *ngIf="item != 'See Below' && item != 'todo'" class="link" [routerLink]="['/items/', item]">{{ item }}</a>, 
+                        </span>
+                        <span *ngIf="i == zoneField.elements.length -1">
+                            <a *ngIf="item != 'See Below' && item != 'todo'" class="link" [routerLink]="['/items/', item]">{{ item }}</a>
+                            <span *ngIf="item == 'See Below' || item == 'todo'">{{item}}</span>
+                        </span>
                     </span>
                 </span>
                 <br>
@@ -247,20 +257,6 @@
             <span class="text">{{ zone.local_color.places }}<br><br></span>  
         </p>  
         
-        <!-- <p *ngIf="zone.places !== null"><span class="title">Places<br></span>
-            <span class="text" *ngFor="let line of zone.places; let i=index">
-                <span *ngIf="i < zone.places.length - 1">{{ line }}<br><br></span>
-                <span *ngIf="i == zone.places.length - 1">{{ line }}</span>
-            </span>
-            <br><br>
-        </p>        
-        <p *ngIf="zone.people !== null"><span class="title">People<br></span>
-            <span class="text" *ngFor="let line of zone.people; let i=index">
-                <span *ngIf="i < zone.people.length - 1">{{ line }}<br><br></span>
-                <span *ngIf="i == zone.people.length - 1">{{ line }}</span>
-            </span>
-            <br><br>
-        </p> -->
         <p *ngIf="hasProperty('strategy') && zone.strategy.length > 0"><span class="title">Strategy<br></span>
             <span  *ngFor="let strat of zone.strategy; let i=index">
                 <span *ngIf="strat.title">

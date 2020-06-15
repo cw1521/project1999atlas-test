@@ -1,15 +1,15 @@
 export class Item {
-    dexterity: String
+    dex: String
     sv_fire: String
     sv_disease: String
     lucy_img_id: String
     skill: String
-    hitpoints: String
+    hp: String
     size: String
-    strength: String
+    str: String
     sv_posion: String
-    stamina: String
-    charisma: String
+    sta: String
+    cha: String
     lore: Boolean
     effect: String
     sv_magic: String
@@ -23,8 +23,8 @@ export class Item {
     sv_cold: String
     id: Number
     ac: String
-    intelligence: String
-    wisdom: String
+    int: String
+    wis: String
     mana: String
     agility: String
     charges: String
@@ -38,7 +38,7 @@ export class Item {
     range: String
     focus_effect: String
     capacity: String
-    wt_reduction: String
+    weight_reduction: String
     size_capacity: String
     stringed: String
     skill_mod: String

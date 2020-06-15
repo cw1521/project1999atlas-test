@@ -27,6 +27,7 @@ export class ItemComponent implements OnInit, OnDestroy {
   itemClass: String;
   itemRace: String;
   itemDeity: String;
+  itemDropsFrom: Object[];
 
   constructor(private itemService: ItemService,
               private route: ActivatedRoute) { }
@@ -49,6 +50,7 @@ export class ItemComponent implements OnInit, OnDestroy {
     this.itemClass = null;
     this.itemRace = null;
     this.itemDeity = null;
+    this.itemDropsFrom = null;
     this.routeSub = this.route.paramMap.subscribe(params => {
       this.itemSub = this.itemService.getItemByName(params.get("itemName"))
       .subscribe(item => {
@@ -78,6 +80,7 @@ export class ItemComponent implements OnInit, OnDestroy {
     this.processCapacity();
     this.processClass();
     this.processRaces();
+    this.processDropsFrom();
   }
 
   processType() {
@@ -133,29 +136,39 @@ export class ItemComponent implements OnInit, OnDestroy {
   }
 
   processStats() {
-    let stats = ["strength", "dexterity", "stamina", "charisma", "wisdom", 
-      "intelligence", "agility", "hitpoints", "mana"];
+    // let stats = ["strength", "dexterity", "stamina", "charisma", "wisdom", 
+    //   "intelligence", "agility", "hitpoints", "mana"];
     
+    // for (let stat of stats) {
+    //   if (this.item[stat] && stat != "hitpoints" && stat != "mana") {
+    //     if (this.itemStats)
+    //       this.itemStats += ` ${stat.substring(0, 3).toUpperCase()}: ${this.item[stat]}`;
+    //     else
+    //       this.itemStats = `${stat.substring(0, 3).toUpperCase()}: ${this.item[stat]}`;
+    //   }
+    //   else if (this.item[stat] && stat == "hitpoints") {
+    //     if (this.itemStats)
+    //       this.itemStats += ` HP: ${this.item[stat]}`;
+    //     else
+    //       this.itemStats = `HP: ${this.item[stat]}`;
+    //   } 
+    //   else if (this.item[stat] && stat == "mana") {
+    //     if (this.itemStats)
+    //       this.itemStats += ` MANA: ${this.item[stat]}`;
+    //     else
+    //       this.itemStats += `MANA: ${this.item[stat]}`;
+    //   }
+    // } 
+
+    let stats = ["str", "dex", "sta", "cha", "wis", 
+      "int", "agi", "hp", "mana"];
     for (let stat of stats) {
-      if (this.item[stat] && stat != "hitpoints" && stat != "mana") {
+      if (this.item[stat])
         if (this.itemStats)
-          this.itemStats += ` ${stat.substring(0, 3).toUpperCase()}: ${this.item[stat]}`;
-        else
-          this.itemStats = `${stat.substring(0, 3).toUpperCase()}: ${this.item[stat]}`;
-      }
-      else if (this.item[stat] && stat == "hitpoints") {
-        if (this.itemStats)
-          this.itemStats += ` HP: ${this.item[stat]}`;
-        else
-          this.itemStats = `HP: ${this.item[stat]}`;
-      } 
-      else if (this.item[stat] && stat == "mana") {
-        if (this.itemStats)
-          this.itemStats += ` MANA: ${this.item[stat]}`;
-        else
-          this.itemStats += `MANA: ${this.item[stat]}`;
-      }
-    } 
+          ` ${stat.toUpperCase()}: ${this.item[stat]}`;
+        else 
+          `${stat.toUpperCase()}: ${this.item[stat]}`
+    }
   }
 
   processSaves() {
@@ -184,8 +197,8 @@ export class ItemComponent implements OnInit, OnDestroy {
 
   processWt() {
     this.itemWt = `WT: ${this.item.wt}`;
-    if (this.item.wt_reduction)
-      this.itemWt += ` Weight Reduction: ${this.item.wt_reduction}`;
+    if (this.item.weight_reduction)
+      this.itemWt += ` Weight Reduction: ${this.item.weight_reduction}`;
     if (this.item.size)
       this.itemWt += ` Size: ${this.item.size}`;
   }
@@ -216,6 +229,12 @@ export class ItemComponent implements OnInit, OnDestroy {
         else
           this.itemRace = `Race: ${race}`;
       }
+    }
+  }
+
+  processDropsFrom() {
+    if (this.item.dropsfrom) {
+      this.itemDropsFrom = this.item.dropsfrom;
     }
   }
 
