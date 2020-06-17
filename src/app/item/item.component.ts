@@ -66,6 +66,22 @@ export class ItemComponent implements OnInit, OnDestroy {
   }
 
   processItem() {
+    this.itemType = null;
+    this.itemFood = null;
+    this.itemSlot = null;
+    this.itemSkill = null;
+    this.itemInstrumentType = null;
+    this.itemDmg = null;
+    this.itemStats = null;
+    this.itemSaves = null;
+    this.itemHaste = null;
+    this.itemEffect = null;
+    this.itemWt = null;
+    this.itemCapacity = null;
+    this.itemClass = null;
+    this.itemRace = null;
+    this.itemDeity = null;
+    this.itemDropsFrom = null;
     this.processType();
     this.processFood();
     this.processSlot();
@@ -85,13 +101,14 @@ export class ItemComponent implements OnInit, OnDestroy {
 
   processType() {
     let item = this.item;
-    if (item.magic && item.lore && item.no_drop) this.itemType = "MAGIC ITEM LORE ITEM NO DROP";
-    else if (item.magic && item.lore) this.itemType = "MAGIC ITEM LORE ITEM";
-    else if (item.magic && item.no_drop) this.itemType = "MAGIC ITEM NO DROP";
-    else if (item.lore && item.no_drop) this.itemType = "LORE ITEM NO DROP";
-    else if (item.magic) this.itemType = "MAGIC ITEM";
-    else if (item.lore) this.itemType = "LORE ITEM";
-    else if (item.no_drop) this.itemType = "NO DROP";
+    if (item.magic) this.itemType = "MAGIC ITEM";
+    if (this.itemType && item.lore) this.itemType += " LORE ITEM";
+    else if (!this.itemType && item.lore) this.itemType = "LORE ITEM";
+    if (this.itemType && item.no_drop) this.itemType += " NO DROP";
+    else if (!this.itemType && item.no_drop) this.itemType += "NO DROP";
+    if (this.itemType && item.temporary) this.itemType = "NORENT";
+    else if (!this.itemType && item.temporary) this.itemType += " NORENT";
+
   }
 
   processFood() {
@@ -136,38 +153,14 @@ export class ItemComponent implements OnInit, OnDestroy {
   }
 
   processStats() {
-    // let stats = ["strength", "dexterity", "stamina", "charisma", "wisdom", 
-    //   "intelligence", "agility", "hitpoints", "mana"];
-    
-    // for (let stat of stats) {
-    //   if (this.item[stat] && stat != "hitpoints" && stat != "mana") {
-    //     if (this.itemStats)
-    //       this.itemStats += ` ${stat.substring(0, 3).toUpperCase()}: ${this.item[stat]}`;
-    //     else
-    //       this.itemStats = `${stat.substring(0, 3).toUpperCase()}: ${this.item[stat]}`;
-    //   }
-    //   else if (this.item[stat] && stat == "hitpoints") {
-    //     if (this.itemStats)
-    //       this.itemStats += ` HP: ${this.item[stat]}`;
-    //     else
-    //       this.itemStats = `HP: ${this.item[stat]}`;
-    //   } 
-    //   else if (this.item[stat] && stat == "mana") {
-    //     if (this.itemStats)
-    //       this.itemStats += ` MANA: ${this.item[stat]}`;
-    //     else
-    //       this.itemStats += `MANA: ${this.item[stat]}`;
-    //   }
-    // } 
-
     let stats = ["str", "dex", "sta", "cha", "wis", 
       "int", "agi", "hp", "mana"];
     for (let stat of stats) {
       if (this.item[stat])
         if (this.itemStats)
-          ` ${stat.toUpperCase()}: ${this.item[stat]}`;
+          this.itemStats += ` ${stat.toUpperCase()}: ${this.item[stat]}`;
         else 
-          `${stat.toUpperCase()}: ${this.item[stat]}`
+          this.itemStats = `${stat.toUpperCase()}: ${this.item[stat]}`;
     }
   }
 
